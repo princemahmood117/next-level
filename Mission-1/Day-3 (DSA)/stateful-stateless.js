@@ -7,13 +7,15 @@ const counter = (amount) => {
     count = count + amount;
     return count
 }
-console.log(counter(1));
-console.log(counter(2));
+console.log('this is using function : ', counter(1));
+console.log('this is using function : ', counter(2));
 
 
 
 
-// (2) object is a stateful
+
+
+// (2) object is a stateful : means it remembers its internal data between function calls
 const obj = {
     count : 0,
 
