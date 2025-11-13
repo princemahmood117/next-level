@@ -11,9 +11,9 @@
 6. install typescript from "https://www.typescriptlang.org/download/" using 
    ==> "npm i -g typescript" ( one time for global use)
 
-7. typescript configuration file : tsc --init
+7. install typescript configuration file : tsc --init
 
-8. ex : "tsc test.ts" ===> in tsconfig.json the rootDir = src, create a folder "src" and save the .ts files inside the src
-	==> now run "tsc" in the terminal, there will be created a dist folder and inside that there will be compiled ts file into js file
+8. ex : "tsc test.ts" ===> inside tsconfig.json the "rootDir : /.src". NOW,create a folder "src" and save the .ts files inside the src
+	==> now run "tsc" in the terminal, a "dist" folder will be created and inside that there will be js files which are compiled of ts
 
 9.
