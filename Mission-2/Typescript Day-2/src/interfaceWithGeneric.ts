@@ -15,7 +15,7 @@ type FeaturesForPoor = {
     stopWatch : boolean,
 }
 
-const poorDevlopers : IDeveloper<FeaturesForPoor, {bike : 'yamaha', engine : '200cc'}> = {
+const poorDevlopers : IDeveloper <FeaturesForPoor, {bike : 'yamaha', engine : '200cc'}> = {
     name : "prince",
     salary : 200,
     device : {

@@ -16,4 +16,5 @@
 8. ex : "tsc test.ts" ===> inside tsconfig.json the "rootDir : /.src". NOW,create a folder "src" and save the .ts files inside the src
 	==> now run "tsc" in the terminal, a "dist" folder will be created and inside that there will be js files which are compiled of ts
 
-9.
+9. if not supported strip-mode occurs : npm install -g ts-node typescript
+	then run the file : ts-node ./src/filename.ts
