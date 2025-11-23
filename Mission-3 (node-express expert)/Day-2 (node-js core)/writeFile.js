@@ -1,6 +1,8 @@
 const fs = require("fs")
 
-const synchronousWriting = "this is synchoronous writing \n i am learning node s core concept"
+
+// synchronous writing
+const synchronousWriting = "this is synchoronous writing \n i am learning node's core concept"
 
 try {
     fs.writeFileSync('./output/syncWrite.txt', synchronousWriting)
@@ -10,7 +12,7 @@ try {
 }
 
 
-
+// synchronous writing
 const asynchronousWriting = "This is asynchronous wrting \n i am learning typescript"
 
 fs.writeFile('./output/asyncWrite.txt', asynchronousWriting, (error) => {
@@ -18,7 +20,7 @@ fs.writeFile('./output/asyncWrite.txt', asynchronousWriting, (error) => {
         console.error(error.message);
     }
     else {
-        console.log('async file written');
+        console.log('asynchronous file written');
     }
 
 })
