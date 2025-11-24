@@ -18,6 +18,9 @@
 
 (ii) remove : "type": "commonjs" 
 
+(**) npm i -D ts-node-dev ===> for running the server continuously
+	=> "ts-node-dev --respawn --transpile-only" use this inside package.json to replace "ts-node" in "dev" you've written before
+
 
 
 ------- INSIDE "tsconfig.json" : 
@@ -38,3 +41,6 @@ comment out : {in recommended option}
 
 
 comment out :  "types": [],  --> in environment setting
+
+
+

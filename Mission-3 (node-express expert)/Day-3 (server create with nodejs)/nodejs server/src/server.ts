@@ -28,13 +28,23 @@ const server : Server = http.createServer((req : IncomingMessage, res : ServerRe
 
     // post method
     if(req.url == '/api/user' && req.method == 'POST') {
-        const user = {
-            id : 1,
-            name : 'prince'
-        }
 
-        res.writeHead(200, {"content-type" : "application/json"})
-        res.end(JSON.stringify(user))
+        let body = "";
+
+        req.on("data", (chunk) => {
+            body = body + chunk.toString();
+        })
+
+        req.on("end", () => {
+            try {
+                const parsedBody = JSON.parse(body)
+                console.log('any changes here will reload the server');
+                console.log('parsedBody from req.on() : ', parsedBody);
+                res.end(JSON.stringify(parsedBody))
+            } catch (error : any) {
+                console.log(error?.message);
+            }
+        })
     }
 })
 
