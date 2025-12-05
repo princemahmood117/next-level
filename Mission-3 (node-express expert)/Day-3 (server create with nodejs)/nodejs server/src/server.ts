@@ -8,6 +8,7 @@ const server : Server = http.createServer((req : IncomingMessage, res : ServerRe
 
     console.log(`server is running....`);
 
+    // a get method
     if(req.url == '/' && req.method == 'GET') {
         res.writeHead(200, {"content-type" : "application/json"})
 
@@ -26,6 +27,8 @@ const server : Server = http.createServer((req : IncomingMessage, res : ServerRe
         }))
     }
 
+
+
     // post method
     if(req.url == '/api/user' && req.method == 'POST') {
 
@@ -38,9 +41,10 @@ const server : Server = http.createServer((req : IncomingMessage, res : ServerRe
         req.on("end", () => {
             try {
                 const parsedBody = JSON.parse(body)
-                console.log('any changes here will reload the server');
                 console.log('parsedBody from req.on() : ', parsedBody);
+              
                 res.end(JSON.stringify(parsedBody))
+
             } catch (error : any) {
                 console.log(error?.message);
             }

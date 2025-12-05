@@ -1,6 +1,6 @@
 1 - create a main folder.
-2 - inside main-folder, create a file server.ts, .env & .gitignore files and create a folder "src"
-3 - inside src, create folder "config" and inside config create a file index.ts
+2 - inside main-folder, create env & .gitignore files and create a folder "src"
+3 - inside src, create a file server.ts , create folder "config" and inside config create a file index.ts
 
 ----------- IN THE MAIN FOLDER, run these commands :
 
@@ -18,7 +18,7 @@
 
 (ii) remove : "type": "commonjs" 
 
-(**) npm i -D ts-node-dev ===> for running the server continuously
+(**) npm i -D ts-node-dev ===> install this for running the server continuously
 	=> "ts-node-dev --respawn --transpile-only" use this inside package.json to replace "ts-node" in "dev" you've written before
 
 
