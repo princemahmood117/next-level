@@ -1,0 +1,2 @@
+this is synchoronous writing 
+ i am learning node's core concept

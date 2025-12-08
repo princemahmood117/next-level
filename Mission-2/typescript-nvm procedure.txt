@@ -1,0 +1,20 @@
+1. remove npm from the system
+
+2. download and install nvm from "https://www.nvmnode.com"  (use github download)
+
+3. view all the available node versions : "nvm list available"
+
+4. install any version/versions : "nvm install <version>"
+
+5. switch node versions using nvm : "nvm use <version>"
+
+6. install typescript from "https://www.typescriptlang.org/download/" using 
+   ==> "npm i -g typescript" ( one time for global use)
+
+7. install typescript configuration file : tsc --init
+
+8. ex : "tsc" ===> inside tsconfig.json the "rootDir : /.src". NOW,create a folder "src" and save the .ts files inside the src
+	==> now run "tsc" in the terminal, a "dist" folder will be created and inside that there will be js files which are compiled of ts
+
+9. if not supported strip-mode occurs : npm install -g ts-node typescript
+	then run the file : ts-node ./src/filename.ts

@@ -1,0 +1,46 @@
+1 - create a main folder.
+2 - inside main-folder, create env & .gitignore files and create a folder "src"
+3 - inside src, create a file server.ts , create folder "config" and inside config create a file index.ts
+
+----------- IN THE MAIN FOLDER, run these commands :
+
+(i) npm i -D typescript ts-node @types/node dotenv  [-D ===> development mode]
+
+(ii) tsc --init  [for 'tsconfig.json' file] 
+
+
+
+----------- INSIDE PACKAGE.JSON FILE
+
+(i) add :  "dev" : "ts-node ./src/server.ts" inside script  [ *becase package.json is in root folder and server.ts is inside src folder*]
+
+(ii) :  add :- "build" : "tsc"   inside script for build the project
+
+(ii) remove : "type": "commonjs" 
+
+(**) npm i -D ts-node-dev ===> install this for running the server continuously
+	=> "ts-node-dev --respawn --transpile-only" use this inside package.json to replace "ts-node" in "dev" you've written before
+
+
+
+------- INSIDE "tsconfig.json" : 
+
+uncomment :  "rootDir": "./src",
+    	     "outDir": "./dist",
+
+
+comment out :  -->  in Other Outputs
+     "sourceMap": true,
+     "declaration": true,
+     "declarationMap": true,
+
+
+comment out : {in recommended option}  
+   "jsx": "react-jsx",
+   "verbatimModuleSyntax": true,
+
+
+comment out :  "types": [],  --> in environment setting
+
+
+

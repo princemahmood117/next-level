@@ -1,0 +1,25 @@
+let value : any;
+(value as string) // this is assertion ==> now methods will show only for string
+
+
+
+
+const convertion = (num : string | number) : string | number | undefined => {
+    if (typeof num === 'number') {
+        return num * 1000
+    }
+
+    else if (typeof num === 'string') {
+        const [splittedValue] = num.split(" ")
+        return `conveted output is ${Number(splittedValue) * 1000}`
+    }
+}
+const res1 = convertion(100) as number
+const res2 = convertion('100 kg') as string
+
+console.log(res1);
+console.log(res2);2
+
+
+// ! use Assertion when you are 100% sure the type of the value
+

@@ -1,0 +1,29 @@
+1. npm init -y   and remove "commonJs module" from package.json
+
+2. npm i -D typescript  ------> to install typescript in development mode
+
+3. npx tsc --init  ----> to create tscconfig file
+
+4. in tscconfig file file ---> comment out : > other outputs
+                                             > "jsx": "react-jsx",  "verbatimModuleSyntax": true,
+
+5. npm i --save-dev @types/express  (for import express)
+
+6. npm i -D tsx  --> TypeScript execution environment for Node.js.
+
+<<<<<<< HEAD
+7. in package.json, inside script, write, "dev" : "npx tsx watch ./src/server.ts"
+=======
+7. in package.json, inside script, write, "dev" : "npx tsx watch ./src/server/ts"
+>>>>>>> af0eb034b0ba59f8a105a0be5eeb418adc38ea4f
+
+
+8. install postgresql package --> npm i pg  (used to create pool)
+
+9. https://neon.com --> store data in NeonDb [create project and there will be a connection string in 'connect']
+
+10. npm i --save-dev @types/pg  (for import pg)
+
+11. create a pool and set the connetionString inside it as an object
+
+12. now create tables using pool.query()

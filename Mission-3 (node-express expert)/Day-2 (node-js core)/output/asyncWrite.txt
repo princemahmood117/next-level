@@ -1,0 +1,2 @@
+This is asynchronous wrting 
+ i am learning typescript
