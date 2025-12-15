@@ -1,0 +1,39 @@
+postgres commands
+
+\? : all the commands in postgres
+
+\! cls : clear terminal 
+
+\l : how many databases in out postgres
+
+\conninfo : currently used database information
+
+\dt : if there any table/relation in the database
+
+\du : which users are currently in the database
+
+\c database_name :  switch database
+
+
+
+----------------------------------------------------------
+
+to use postgres from system termial :
+ 
+1. first add to system path (copy bin and paste it inside new environment variable's path)
+
+2. now open cmd and check if postgres is found (postgres --version)
+
+3. connect :  psql -U database_name (ex: psql -U postgres)
+
+
+----------------------------------------------------------------
+
+pgadmin gui (⚒ not using)
+
+---------------------------------------------------------------
+
+beekeeper studio for sql editor
+
+
+
