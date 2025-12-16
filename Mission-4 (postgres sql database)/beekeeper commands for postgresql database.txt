@@ -1,0 +1,131 @@
+create table students (
+  student_id serial primary key,
+  first_name varchar(50) not null,
+  last_name varchar(50) not null,
+  age int,
+  grade char(2),
+  course varchar(50),
+  email varchar(100) unique,
+  dob date,
+  blood_group varchar(5),
+  country varchar(20)
+);
+
+
+INSERT INTO students
+(first_name, last_name, age, grade, course, email, dob, blood_group, country)
+VALUES
+('Rahim', 'Ahmed', 20, 'A+', 'Computer Science', 'rahim.ahmed@gmail.com', '2004-03-15', 'O+', 'Bangladesh'),
+('Karim', 'Hossain', 22, 'A', 'Information Technology', 'karim.hossain@gmail.com', '2002-07-10', 'A+', 'Bangladesh'),
+('Nusrat', 'Jahan', 19, 'B+', 'Software Engineering', 'nusrat.jahan@gmail.com', '2005-01-25', 'B+', 'Bangladesh'),
+('Ayesha', 'Khan', 21, 'A', 'Data Science', 'ayesha.khan@gmail.com', '2003-11-08', 'AB+', 'Pakistan'),
+('John', 'Smith', 23, 'B', 'Cyber Security', 'john.smith@gmail.com', '2001-05-19', 'O-', 'USA'),
+('Emma', 'Brown', 20, 'A+', 'Artificial Intelligence', 'emma.brown@gmail.com', '2004-09-02', 'A-', 'UK'),
+('Arif', 'Islam', 18, 'B', 'Computer Engineering', 'arif.islam@gmail.com', '2006-02-14', 'O+', 'Bangladesh'),
+('Sara', 'Ali', 22, 'A+', 'Business Analytics', 'sara.ali@gmail.com', '2002-12-30', 'B-', 'UAE'),
+('Michael', 'Johnson', 24, 'C+', 'Information Systems', 'michael.johnson@gmail.com', '2000-08-21', 'O+', 'Canada'),
+('Fatima', 'Noor', 19, 'B+', 'Software Engineering', 'fatima.noor@gmail.com', '2005-04-17', 'A+', 'Bangladesh'),
+('David', 'Miller', 21, 'A', 'Computer Science', 'david.miller@gmail.com', '2003-06-11', 'B+', 'USA'),
+('Sophia', 'Wilson', 20, 'A+', 'Data Science', 'sophia.wilson@gmail.com', '2004-10-05', 'O-', 'UK'),
+('Hasan', 'Mahmud', 23, 'B', 'Network Engineering', 'hasan.mahmud@gmail.com', '2001-01-09', 'AB-', 'Bangladesh'),
+('Liam', 'Anderson', 22, 'A', 'Artificial Intelligence', 'liam.anderson@gmail.com', '2002-02-18', 'A+', 'Australia'),
+('Zara', 'Haque', 18, 'B+', 'Computer Science', 'zara.haque@gmail.com', '2006-07-27', 'O+', 'Bangladesh'),
+('Noah', 'Thomas', 21, 'A', 'Cyber Security', 'noah.thomas@gmail.com', '2003-09-14', 'B-', 'USA'),
+('Mariam', 'Rahman', 20, 'A+', 'Software Engineering', 'mariam.rahman@gmail.com', '2004-12-01', 'A-', 'Bangladesh'),
+('Ethan', 'White', 24, 'C', 'Information Technology', 'ethan.white@gmail.com', '2000-03-22', 'O+', 'USA'),
+('Sadia', 'Akter', 19, 'B', 'Business Analytics', 'sadia.akter@gmail.com', '2005-05-06', 'AB+', 'Bangladesh'),
+('Daniel', 'Clark', 22, 'A', 'Computer Engineering', 'daniel.clark@gmail.com', '2002-11-29', 'O-', 'Canada'),
+('Rafi', 'Chowdhury', 23, 'A+', 'Data Science', 'rafi.chowdhury@gmail.com', '2001-06-03', 'B+', 'Bangladesh'),
+('Olivia', 'Martinez', 21, 'B+', 'Artificial Intelligence', 'olivia.martinez@gmail.com', '2003-08-16', 'A+', 'Spain'),
+('Imran', 'Khan', 24, 'B', 'Cyber Security', 'imran.khan@gmail.com', '2000-01-12', 'O+', 'Pakistan'),
+('Lucas', 'Garcia', 20, 'A', 'Computer Science', 'lucas.garcia@gmail.com', '2004-04-09', 'AB-', 'Brazil'),
+('Tahmina', 'Sultana', 18, 'B+', 'Information Systems', 'tahmina.sultana@gmail.com', '2006-10-20', 'A+', 'Bangladesh');
+
+
+select * from students;
+
+select first_name, age from students;
+
+select first_name as "FN", age as "User_Age" from students;  -- change column name to keep it abstracted + to use uppercase, use double quote
+
+select first_name, age, blood_group, country from students order by student_id desc;
+
+
+-- distinct
+select distinct course from students;  --  counts each course only once
+
+
+-- filtering
+select first_name, age, course from students where country='USA';
+
+select * from students where grade = 'A' and course = 'Artificial Intelligence'; 
+
+select * from students where country = 'USA' or country = 'Canada';
+
+select * from students where (grade = 'A' or grade = 'B') and (course = 'Computer Science' or course = 'Network Engineering' or course = 'Cyber Security');
+
+select * from students where (country = 'USA') and (age > 20);
+
+select * from students where (country = 'Bangladesh' or country = 'Canada') and (age > 20);
+
+
+
+-- comparison
+select * from students where country != 'Canada';  -- != also be written as <>
+
+select * from students where age between 20 and 22;
+
+select * from students where country in ('Bangladehs', 'USA', 'Canada');
+
+
+-- like
+select * from students where first_name like 'Sa%'; --first_name shuru hobe Sa diye, erpor ja khushi character thakte pare
+
+select * from students where last_name like '%a';
+
+
+
+-- Not operator
+select * from students where not country = 'Bangladesh';
+
+
+
+-------------------------- built in functions --------------------------
+
+-- scalr functions : upper, lower, concat, length
+
+select upper(first_name) from students;
+
+select lower(first_name) from students;
+
+select concat(first_name, ' ' ,last_name) from students;
+
+select first_name, length(first_name) from students;
+
+
+
+-- aggragate functions :  max, min, avg, count, sum
+
+select sum(age) from students;
+
+select avg(age), round(avg(age)), floor(avg(age)), ceil(avg(age)) from students;
+
+select max(age) as "Max age" , min(age) as "Min age" from students;
+
+select count(age) from students;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
