@@ -1,0 +1,51 @@
+-- null
+select * from students where email is null;
+
+
+-- limit
+select * from students limit 5;
+
+select * from students where country in ('Bangladesh', 'USA') limit 5;
+
+select * from students where country in ('Bangladesh', 'USA') order by student_id desc limit 5;
+
+
+-- offset
+select * from students where country in ('Bangladesh', 'USA') limit 5 offset 2;  -- offset 2 == removes first 2 items
+
+select * from students limit 5 offset 5 * 1;
+
+
+-- UPDATE
+update students set email = 'default@gmail.com' where email is null;
+
+select * from students where email is null;
+
+select * from students;
+
+update students set email = 'rajib.kumar@gmail.com', first_name = 'Rajib', last_name = 'Kumar', age = 25, grade = 'A-', blood_group = 'AB+' where student_id = 1;
+
+update students set grade = 'A' where student_id = 1;
+
+
+
+-- DELETE
+delete from students where student_id = 25;
+
+
+-- GROUP BY
+select country, avg(age) from students group by country;  -- protita country er ekta group hobe, jekhane bangladesh er ekta group e jotogula 'bangladesh' ache ta joma hobe and pore others operation hobe (jemon avg(age) = total bangladesh er students er average age)
+
+-- count students from each country
+select country, count(*) as "total_students of this country" from students group by country;
+
+-- count students by their grades
+select grade, count(*) from students group by grade;
+
+
+-- find those courses which has students more than 2 
+select course, count(*) as "student amount" from students group by course having count(*) > 2;
+
+
+-- find those countries which has average age of students more than 21
+select country, avg(age) as "average age" from students group by country having avg(age) > 22;
