@@ -1,0 +1,61 @@
+
+create table employees (
+  employee_id serial primary key,
+  employee_name varchar(50),
+  department_id int references departments(department_id),
+  salary decimal(10,2),
+  hire_date date
+);
+
+
+create table departments (
+  department_id serial primary key,
+  department_name varchar(50)
+);
+
+
+insert into departments (department_name) values 
+('Human Resources'),
+('Information Technology'),
+('Finance'),
+('Marketing'),
+('Sales'),
+('Operations'),
+('Customer Service'),
+('Research and Development'),
+('Legal'),
+('Administration');
+
+
+INSERT INTO employees (employee_name, department_id, salary, hire_date) VALUES
+('Sarah Johnson', 1, 55000.00, '2020-01-15'),
+('Michael Chen', 2, 75000.00, '2019-03-22'),
+('Emily Rodriguez', 2, 82000.00, '2018-07-10'),
+('David Kim', 3, 68000.00, '2021-02-01'),
+('Jessica Williams', 3, 72000.00, '2019-11-05'),
+('Robert Taylor', 4, 62000.00, '2020-06-18'),
+('Amanda Brown', 4, 58000.00, '2021-09-12'),
+('James Wilson', 5, 65000.00, '2019-04-25'),
+('Maria Garcia', 5, 70000.00, '2020-08-30'),
+('Christopher Lee', 5, 63000.00, '2022-01-10'),
+('Jennifer Martinez', 6, 59000.00, '2021-05-20'),
+('Daniel Anderson', 6, 61000.00, '2020-10-15'),
+('Lisa Thompson', 7, 48000.00, '2021-03-08'),
+('Matthew White', 7, 52000.00, '2020-12-01'),
+('Ashley Harris', 8, 88000.00, '2018-09-15'),
+('Joshua Clark', 8, 92000.00, '2017-11-20'),
+('Nicole Lewis', 9, 95000.00, '2019-02-14'),
+('Andrew Walker', 9, 98000.00, '2018-06-30'),
+('Stephanie Hall', 10, 54000.00, '2020-07-22'),
+('Kevin Young', 10, 56000.00, '2021-04-17');
+
+
+
+select * from employees join departments on employees.department_id = departments.department_id;
+
+--same query but shorter (returns the similler column from both tables just once)
+select * from employees join departments using(department_id);
+
+
+select department_name, avg(salary) from departments inner join employees group by department_name;
+
