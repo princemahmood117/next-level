@@ -3,8 +3,8 @@ import { prisma } from "./lib/prisma"
 async function run() {
     // const createUser = await prisma.user.create({
     //     data : {
-    //         name : "Injamul Haque",
-    //         email : "navid12@gmail.com"
+    //         name : "Siam Shifat",
+    //         email : "siam@yahoo.com"
     //     }
     // })
 
@@ -12,12 +12,13 @@ async function run() {
 
 
 
+
     // create a post of id 1
     // const createPost = await prisma.post.create({
     //     data : {
-    //         title : "The Book of Happiness",
+    //         title : "The Book of Sifat",
     //         content : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    //         authorId : 1
+    //         authorId : 3
 
     //     }
     // })
@@ -53,10 +54,36 @@ async function run() {
     // read single data
     // const getSingleData = await prisma.user.findUnique({
     //     where : {
-    //         id : 2
+    //         id : 1
     //     }
     // })
     // console.log('single data : ', getSingleData);
+
+
+
+
+    // update user data
+    // const updateUser = await prisma.user.update({
+    //     where : {
+    //         id : 1
+    //     },
+    //     data : {
+    //         name : "Injamul Haque Navid"
+    //     }
+    // })
+    // console.log('updated info : ', updateUser);
+
+
+
+
+    // delete user
+    // const deleteUser = await prisma.user.delete({
+    //     where : {
+    //         id : 4
+    //     }
+    // })
+
+    // console.log('deleted successfully : ', deleteUser);
 }
 
 run()
