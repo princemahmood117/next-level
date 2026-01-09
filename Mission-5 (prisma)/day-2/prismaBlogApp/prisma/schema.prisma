@@ -29,7 +29,6 @@ model Post {
   comments Comment[]
 
   @@index([authorId])
-  
 }
 
 enum PostStatus {
@@ -45,9 +44,12 @@ model Comment {
   postId    String
   post      Post          @relation(fields: [postId], references: [id])
   parentId  String?
+  parent    Comment?      @relation("CommentReplies", fields: [parentId], references: [id])
+  replies  Comment[] @relation("CommentReplies")
   status    CommentStatus @default(APPROVED)
   createdAt DateTime
   updatedAt DateTime
+  
 }
 
 enum CommentStatus {
