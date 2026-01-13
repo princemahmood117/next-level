@@ -13,6 +13,7 @@ app.use(cors({
 
 app.use(express.json())
 
+// for authentication
 app.all("/api/auth/*splat", toNodeHandler(auth));
 
 

@@ -21,7 +21,7 @@ export const auth = betterAuth({
     provider: "postgresql",
   }),
 
-  trustedOrigins : [process.env.APP_URL!],
+  trustedOrigins : [process.env.APP_URL!], // frontend url
 
   user : {
     additionalFields : {
@@ -42,15 +42,18 @@ export const auth = betterAuth({
     }
   },
 
-  
+  // email-password login
   emailAndPassword: { 
     enabled: true, 
     autoSignIn : false,
     requireEmailVerification : true,
   }, 
 
+
+// email verification
   emailVerification : {
     sendOnSignUp : true,
+    autoSignInAfterVerification : true,
 
     sendVerificationEmail: async ( { user, url, token }, request) => {
       try {
@@ -140,5 +143,18 @@ export const auth = betterAuth({
         throw error;
       }
     },
-  }
+  },
+
+
+
+  // social login
+      socialProviders: {
+        google: { 
+          prompt : "select_account consent",
+            clientId: process.env.GOOGLE_CLIENT_ID as string, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,     
+            accessType : "offline",
+
+        }, 
+    },
 });
