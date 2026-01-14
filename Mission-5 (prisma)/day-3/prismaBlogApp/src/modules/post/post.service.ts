@@ -3,9 +3,12 @@ import { Post } from "../../../generated/prisma/client";
 import { prisma } from "../../lib/prisma";
 
 // since the id, createdAt, updatedAt will be generated automatically so these fields are Ommitted (removed now) while createing post
-const createPost = async(data:Omit<Post, 'id' | 'createdAt' | 'updatedAt'>) => {
+const createPost = async(data:Omit<Post, 'id' | 'createdAt' | 'updatedAt' | 'authorId'>, userId : string) => {
     const result = await prisma.post.create({
-        data 
+        data : {
+            ...data,
+            authorId : userId
+        }
     })
    
     return result;
