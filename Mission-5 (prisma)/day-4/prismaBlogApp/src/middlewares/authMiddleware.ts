@@ -26,7 +26,6 @@ declare global {
 const authHandler = (...roles : UserRole[]) => {
     return async (req : Request, res : Response, next : NextFunction) => {
         try {
-            console.log(roles);
         
         console.log('middle ware!!!!!!');
 
@@ -35,6 +34,8 @@ const authHandler = (...roles : UserRole[]) => {
         const session = await auth.api.getSession({
             headers : req.headers as any,            
         })
+
+        console.log('\n session : ', session);
 
 
         if(!session) {
@@ -58,6 +59,7 @@ const authHandler = (...roles : UserRole[]) => {
             role : session.user.role as string,
             emailVerified : session.user.emailVerified
         }
+
         console.log('this is req.user : ', req.user);
 
         if(roles.length && !roles.includes(req.user.role as UserRole)) {
@@ -67,7 +69,6 @@ const authHandler = (...roles : UserRole[]) => {
             })
         }
 
-        console.log('this is session : ', session);
         next()
         } catch (error) {
             res.status(403).json({

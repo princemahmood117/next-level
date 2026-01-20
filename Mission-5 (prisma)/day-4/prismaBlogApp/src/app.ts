@@ -6,10 +6,9 @@ import cors from 'cors'
 
 const app:Application = express()
 
-// this is cross origin resource sharing
 app.use(cors({
     origin : process.env.APP_URL,
-    credentials : true,
+    credentials : true,    
     
 }))
 

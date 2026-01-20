@@ -10,6 +10,7 @@ const createPost = async(req:Request, res: Response) => {
             error : "User not found",            
         })
         }
+
         console.log('request.user from createPost controller : ', req.user);
 
         const result = await postService.createPost(req.body, user.id as string)
@@ -24,11 +25,22 @@ const createPost = async(req:Request, res: Response) => {
 }
 
 
+
+
+
+
 const getAllPost = async(req:Request, res:Response) => {
     try {
-        const allPosts = await postService.getAllPosts()
-        console.log('all post : ', allPosts);
+        const {search} = req.query;  // req.query contains URL query (after the '?' sign in the url)
+
+        const searchString = typeof search === 'string' ? search : undefined
+
+        console.log('\n search value : ', search);
+
+        const allPosts = await postService.getAllPosts({search : searchString})
+  
         res.status(200).json(allPosts)
+
     } catch (err) {
         res.status(400).json({
             error : "Post fetching failed",
@@ -38,22 +50,9 @@ const getAllPost = async(req:Request, res:Response) => {
 }
 
 
-const findPostByAuthorId = async(req:Request, res:Response) => {
-  try {
-    const result = await postService.getPostByAuthorId()
-    console.log(result);
-    res.status(200).json(result)
-  } catch (error) {
-    res.status(400).json({
-        message : "Fetching by author Id failed",
-        body : error
-    })
-  }
-}
 
 export const postController = {
     createPost,
-    getAllPost,
-    findPostByAuthorId
+    getAllPost
 }
 

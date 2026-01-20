@@ -15,26 +15,39 @@ const createPost = async(data:Omit<Post, 'id' | 'createdAt' | 'updatedAt' | 'aut
 }
 
 
-const getAllPosts = async() => {
-    const posts = await prisma.post.findMany()
+const getAllPosts = async(payload : {search : string | undefined}) => {
+    const posts = await prisma.post.findMany({
+        where : {
+            OR : [
+            {
+                title : {
+                contains : payload.search as string,
+                mode : 'insensitive'
+            }
+            },
+
+            {
+                content : {
+                contains : payload.search as string,
+                mode : 'insensitive'
+            }
+            },
+            
+            {
+                tags : {
+                    has : payload.search as string
+                }
+            }
+        ]
+        }
+    })
     return posts
 }
 
 
-const getPostByAuthorId = async() => {
-    const postByAuthorId = await prisma.post.findMany({
-        where : {
-        
-            authorId : "authorid2"
-        }
-    })
-    return postByAuthorId;
-}
-
 export const postService = {
     createPost,
-    getAllPosts,
-    getPostByAuthorId
+    getAllPosts
 }
 
 
