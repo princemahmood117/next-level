@@ -12,8 +12,6 @@ app.use(cors({
     
 }))
 
-
-// this converts the codes into json format
 app.use(express.json())
 
 
