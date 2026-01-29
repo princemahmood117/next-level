@@ -1,4 +1,4 @@
-import { Post, PostStatus } from "../../../generated/prisma/client";
+import { CommentStatus, Post, PostStatus } from "../../../generated/prisma/client";
 import { PostWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
 
@@ -89,12 +89,21 @@ const getAllPosts = async ({search, tags, isFeatured, status, page, limit, skip,
 
 
   const posts = await prisma.post.findMany({
+    
     take : limit,
 
     skip : skip,
 
     orderBy : {
       [sortBy] : sortOrder     // title : 'desc' ---->  will be look like this
+    },
+
+    include : {
+      _count : {
+        select : {
+          comments : true
+        }
+      },
     },
 
     where : {
@@ -157,7 +166,7 @@ const getPostById = async (postId : string) => {
   // hoile 2 tai hobe, naile ekta error holeo full error e dibe, tai "transcation" use kora lagse
   const result = await prisma.$transaction(async(trans) => {
 
-    // update views count
+  // update views count
   await trans.post.update({
     where : {
       id : postId
@@ -169,15 +178,47 @@ const getPostById = async (postId : string) => {
     }
   })
 
-
   // get post by id
   const postData = await trans.post.findUnique({
     where : {
       id : postId
+    },
+
+    include : {
+      comments : {
+        where : {
+          parentId : null,   // parent comment will have "parentId = null"
+          status : CommentStatus.APPROVED
+        },
+
+        orderBy : {
+          createdAt : 'asc'
+        },
+
+        include : {
+          // replies : true,   // parent comment will include it's child comments (replies), 
+          replies : {
+            where : {
+              status : CommentStatus.APPROVED
+            },
+            orderBy : {
+              createdAt : 'desc'
+            }
+          }         
+          
+        }
+      },
+
+      // to see total comments
+      _count : {
+        select : {
+          comments : true
+        }
+      }
     }
   })
 
-  return postData
+  return postData;
 })
 
 return result;

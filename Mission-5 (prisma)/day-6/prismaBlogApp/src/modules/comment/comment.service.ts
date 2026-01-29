@@ -9,12 +9,14 @@ const createComment = async (body:{
 }) => {
 
 
+    // Prevents creating comments on non-existent posts
     await prisma.post.findUniqueOrThrow({
         where : {
             id : body.postId
         }
     })
 
+    // Validates that the parent comment exists
     if(body.parentId) {
         await prisma.comment.findUniqueOrThrow({
             where : {
