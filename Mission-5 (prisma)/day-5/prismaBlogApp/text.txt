@@ -1,0 +1,7 @@
+day 5 will include seed admin
+
+princemahmood117@gmail.com
+password : asdf1234
+
+
+doing sorting and filtering using prisma
