@@ -27,7 +27,7 @@ const authHandler = (...roles : UserRole[]) => {
     return async (req : Request, res : Response, next : NextFunction) => {
         try {
         
-        console.log('middle ware!!!!!!');
+        // console.log('middle ware!!!!!!');
 
 
         // get user session
@@ -35,7 +35,7 @@ const authHandler = (...roles : UserRole[]) => {
             headers : req.headers as any,            
         })
 
-        console.log('\n session : ', session);
+        // console.log('\n session : ', session);
 
 
         if(!session) {
@@ -60,7 +60,7 @@ const authHandler = (...roles : UserRole[]) => {
             emailVerified : session.user.emailVerified
         }
 
-        console.log('this is req.user : ', req.user);
+        // console.log('this is req.user : ', req.user);
 
         if(roles.length && !roles.includes(req.user.role as UserRole)) {
                 return res.status(403).json({
