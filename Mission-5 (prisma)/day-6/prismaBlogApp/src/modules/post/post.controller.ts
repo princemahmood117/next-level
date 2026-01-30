@@ -101,9 +101,10 @@ const getPostById = async (req : Request, res : Response) => {
 
 
 
+
 export const postController = {
     createPost,
     getAllPost,
-    getPostById
+    getPostById    
 }
 
