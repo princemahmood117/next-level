@@ -1,4 +1,6 @@
-day 5 will include seed admin
+day 5 will include :  
+ --> seed admin
+ --> doing sorting and filtering using prisma
 
 princemahmood117@gmail.com (random admin)
 iftekhar20300@gmail.com
@@ -8,5 +10,3 @@ password : asdf1234
 
 
 
-
-doing sorting and filtering using prisma
