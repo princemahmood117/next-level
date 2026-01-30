@@ -1,3 +1,4 @@
+import { CommentStatus } from "../../../generated/prisma/enums"
 import { prisma } from "../../lib/prisma"
 
 
@@ -136,10 +137,40 @@ const updateComment = async(commentID:string, updateData:{title?:string, content
 }
 
 
+
+const moderateComment = async(comId : string, moderateData : {status : CommentStatus}) => {
+
+    console.log('moderate comment', {comId, moderateData});
+
+    const commentData = await prisma.comment.findUnique({
+        where : {
+            id : comId
+        }
+    })
+
+    if(!commentData) {
+        throw new Error("No comment found for moderate")
+    }
+    else {
+        return await prisma.comment.update({
+            where : {
+                id : comId
+            },
+            data : {
+                ...moderateData
+            }
+        })
+    }
+
+
+}
+
+
 export const commentService = {
     createComment,
     getCommentById,
     getCommentsByAuthor,
     deleteComment,
-    updateComment
+    updateComment,
+    moderateComment
 }
