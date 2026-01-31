@@ -139,8 +139,7 @@ const updateComment = async(commentID:string, updateData:{title?:string, content
 
 
 const moderateComment = async(comId : string, moderateData : {status : CommentStatus}) => {
-
-    console.log('moderate comment', {comId, moderateData});
+    
 
     const commentData = await prisma.comment.findUnique({
         where : {
@@ -151,6 +150,12 @@ const moderateComment = async(comId : string, moderateData : {status : CommentSt
     if(!commentData) {
         throw new Error("No comment found for moderate")
     }
+
+    else if (commentData.status === moderateData.status) {
+        throw new Error(`status ${moderateData.status} is already up to date`)
+    }
+
+
     // can update the status
     else {
         return await prisma.comment.update({

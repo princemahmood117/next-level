@@ -1,8 +1,12 @@
 day 5 will include :  
- --> seed admin
+ --> seed admin (run command : npm run seed:admin)
  --> doing sorting and filtering using prisma
 
-princemahmood117@gmail.com (random admin)
+Admin:
+princemahmood117@gmail.com 
+password : asdf1234
+
+User:
 iftekhar20300@gmail.com
 password : asdf1234
 

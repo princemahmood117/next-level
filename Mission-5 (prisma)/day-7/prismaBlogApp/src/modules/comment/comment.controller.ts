@@ -124,6 +124,7 @@ const updateComment = async(req:Request, res:Response) => {
 
 
 
+// admin can change the comment status
 const moderateComment = async(req:Request, res:Response) => {
 
     try {
@@ -133,9 +134,10 @@ const moderateComment = async(req:Request, res:Response) => {
         res.status(200).json(result)
     } 
     
-    catch (error) {
+    catch (error) {    
+        const erroMessage = (error instanceof Error) ? error.message : "error inside moderate"   
             res.status(400).json({
-            error : "error inside moderate",
+            error : erroMessage,
             details : error
         })
     }

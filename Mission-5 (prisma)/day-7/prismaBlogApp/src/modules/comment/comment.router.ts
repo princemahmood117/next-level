@@ -23,7 +23,7 @@ router.patch('/update/:commentID', authHandler(UserRole.USER, UserRole.ADMIN), c
 router.post('/', authHandler(UserRole.USER, UserRole.ADMIN) ,commentController.createComment)
 
 
-router.patch('/:comId/moderate', authHandler(UserRole.USER, UserRole.ADMIN), commentController.moderateComment)
+router.patch('/:comId/moderate', authHandler(UserRole.ADMIN), commentController.moderateComment)
 
 
 

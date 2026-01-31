@@ -1,5 +1,11 @@
 day 6 will include: 
  --> comment related works
 
+
+Admin:   (to run the function for admin-seed: npm run seed:admin)
+princemahmood117@gmail.com 
+password : asdf1234
+
+User:
 iftekhar20300@gmail.com
 password : asdf1234
