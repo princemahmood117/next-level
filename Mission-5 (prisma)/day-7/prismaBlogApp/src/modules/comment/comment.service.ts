@@ -151,6 +151,7 @@ const moderateComment = async(comId : string, moderateData : {status : CommentSt
     if(!commentData) {
         throw new Error("No comment found for moderate")
     }
+    // can update the status
     else {
         return await prisma.comment.update({
             where : {
