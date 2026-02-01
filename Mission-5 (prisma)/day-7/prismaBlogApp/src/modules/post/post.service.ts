@@ -228,12 +228,29 @@ return result;
 
 
 
+ 
+// get posts by individual user
+const getUsersPosts = async (authorID : string) => {
+  console.log(authorID);
+
+    const result = await prisma.post.findMany({
+        where : {
+            authorId : authorID
+        }
+    })
+
+    return result
+}
+
+
+
 
 
 export const postService = {
   createPost,
   getAllPosts,
-  getPostById
+  getPostById,
+  getUsersPosts
 };
 
 

@@ -168,8 +168,8 @@ const moderateComment = async(comId : string, moderateData : {status : CommentSt
         })
     }
 
-
 }
+
 
 
 export const commentService = {
@@ -178,5 +178,5 @@ export const commentService = {
     getCommentsByAuthor,
     deleteComment,
     updateComment,
-    moderateComment
+    moderateComment,    
 }

@@ -144,6 +144,10 @@ const moderateComment = async(req:Request, res:Response) => {
 }
 
 
+
+
+
+
 export const commentController = {
     createComment,
     getCommentById,

@@ -102,9 +102,38 @@ const getPostById = async (req : Request, res : Response) => {
 
 
 
+
+
+
+
+const getUsersPosts = async(req:Request, res:Response) => {
+    
+    try {
+    const user = req.user
+    console.log(user);
+
+    if(!user) {
+        throw new Error('User not found for single post fetch!')
+    }
+
+    const result = await postService.getUsersPosts(user?.id)
+    res.status(200).json(result)
+    } 
+    catch (err) {
+        const erroMessage = (err instanceof Error) ? err.message : "error inside moderate"  
+        res.status(400).json({
+            error : " single user's Post fetching failed",
+            details : erroMessage
+        })
+    }
+}
+
+
+
 export const postController = {
     createPost,
     getAllPost,
-    getPostById    
+    getPostById,
+    getUsersPosts
 }
 
