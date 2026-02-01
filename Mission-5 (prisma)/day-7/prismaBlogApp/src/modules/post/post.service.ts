@@ -230,16 +230,49 @@ return result;
 
  
 // get posts by individual user
-const getUsersPosts = async (authorID : string) => {
-  console.log(authorID);
+const getUsersPosts = async (authorID : string) => {  
 
     const result = await prisma.post.findMany({
         where : {
             authorId : authorID
-        }
+        },
+        orderBy : {
+          createdAt : 'desc'
+        },
+        include : {
+          _count : {
+            select : {
+              comments : true
+            }
+          }
+        },        
+        
     })
 
-    return result
+    // count total post 
+    // const totalPosts = await prisma.post.count({
+    //   where : {
+    //     authorId : authorID
+    //   }
+    // })
+
+
+    // count total post using aggregate
+    const totalPosts = await prisma.post.aggregate({
+      _count : {
+        id : true,
+      },
+
+      where : {
+        authorId : authorID
+      }
+    })
+     
+
+    return {
+      result,
+      totalPosts
+    }
 }
 
 

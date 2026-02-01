@@ -107,10 +107,9 @@ const getPostById = async (req : Request, res : Response) => {
 
 
 const getUsersPosts = async(req:Request, res:Response) => {
-    
+
     try {
     const user = req.user
-    console.log(user);
 
     if(!user) {
         throw new Error('User not found for single post fetch!')
@@ -120,7 +119,7 @@ const getUsersPosts = async(req:Request, res:Response) => {
     res.status(200).json(result)
     } 
     catch (err) {
-        const erroMessage = (err instanceof Error) ? err.message : "error inside moderate"  
+        const erroMessage = (err instanceof Error) ? err.message : "error inside single users post fetching!"  
         res.status(400).json({
             error : " single user's Post fetching failed",
             details : erroMessage
