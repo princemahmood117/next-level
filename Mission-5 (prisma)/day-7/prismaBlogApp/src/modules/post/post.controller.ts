@@ -2,6 +2,7 @@ import { Request,Response } from "express";
 import { postService } from "./post.service";
 import { PostStatus } from "../../../generated/prisma/enums";
 import paginationSortingHelper from "../../helpers/paginationSortingHelper";
+import { UserRole } from "../../middlewares/authMiddleware";
 
 
 const createPost = async(req:Request, res: Response) => {
@@ -129,10 +130,91 @@ const getUsersPosts = async(req:Request, res:Response) => {
 
 
 
+
+// update post
+const updatePost = async(req:Request, res:Response) => {
+
+   try {
+    const user = req.user;
+    const {postID} = req.params;
+
+    if(!user) {
+        throw new Error("User not found for update")
+    }
+
+    const isAdmin = user?.role === UserRole.ADMIN
+
+    const updateData = req.body
+
+    const result = await postService.updatePost(postID as string, updateData, user?.id, isAdmin)
+    res.status(200).json(result)
+   }  
+   
+   catch (err) {
+        const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  
+        res.status(400).json({
+            error : "single user's Post update failed",
+            details : erroMessage
+        })
+    }
+}
+
+
+// statistics post
+const deletePost = async(req:Request, res:Response) => {
+
+    try {
+    
+    const user = req?.user;
+    const isAdmin = user?.role === UserRole.ADMIN
+    const {postID} = req.params;
+    
+    if(!user) {
+        throw new Error("User not found for update")
+    }
+
+    await postService.deletePost(postID as string, user.id, isAdmin)
+    res.status(200).json({
+        success : true,
+        message : `post id ${postID} delete successfull! `
+    })
+}   
+   catch (err) {
+        const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  
+        res.status(400).json({
+            error : "Failed to delete user's post!",
+            details : erroMessage
+        })
+    }
+}
+
+
+// Delete post
+const getStats = async(req:Request, res:Response) => {
+
+    try {
+
+    await postService.getStats()
+    res.status(200).json()
+}   
+   catch (err) {
+        const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  
+        res.status(400).json({
+            error : "",
+            details : erroMessage
+        })
+    }
+}
+
+
+
 export const postController = {
     createPost,
     getAllPost,
     getPostById,
-    getUsersPosts
+    getUsersPosts,
+    updatePost,
+    deletePost,
+    getStats
 }
 

@@ -178,7 +178,7 @@ const getPostById = async (postId : string) => {
     }
   })
 
-  // get post by id
+  // get post by post-id
   const postData = await trans.post.findUnique({
     where : {
       id : postId
@@ -277,13 +277,139 @@ const getUsersPosts = async (authorID : string) => {
 
 
 
+// USER --> shudhu nijer post update korte parbe, but "isFeatured" update korte parbe na
+// USER --> shobaar post update korte parbe
+
+const updatePost = async (postID : string, updateData : Partial<Post>, authorID : string, isAdmin : boolean) => {
+
+  console.log({postID, authorID, updateData, isAdmin});
+
+  const postData = await prisma.post.findUniqueOrThrow({
+    where : {
+      id  : postID
+    },
+    select : {
+      id : true,
+      authorId : true
+    }
+  })
+
+  if(!isAdmin && (postData.authorId !== authorID)){
+    throw new Error("You are not the author!")
+  }
+
+  // jodi shudhu USER hoy tahole object theke "isFeatured" property e delete kore dibe jate ta update na korte pore
+  if(!isAdmin) {
+    delete updateData.isFeatured
+  }
+
+    const result = await prisma.post.update({
+      where : {
+        id : postID
+      },
+      data : {
+        ...updateData
+      }
+    })
+  return result
+
+}
+
+
+
+
+
+// USER ONLY CAN UPDATE HIS OWN POST
+// const updatePost = async (postID : string, updateData : Partial<Post>, authorID : string) => {
+
+//   console.log({postID, authorID, updateData});
+
+//   const postData = await prisma.post.findUniqueOrThrow({
+//     where : {
+//       id  : postID
+//     },
+//     select : {
+//       id : true,
+//       authorId : true
+//     }
+//   })
+
+//   if(postData.authorId !== authorID){
+//     throw new Error("You are not the author!")
+//   }
+
+//   else {
+//     const result = await prisma.post.update({
+//       where : {
+//         id : postID
+//       },
+//       data : {
+//         ...updateData
+//       }
+//     })
+//   return result
+//   }
+// }
+
+
+
+
+
+// delete post
+// USER nijer post delete korte parbe
+// ADMIN shobar post delete korte parbe
+
+const deletePost = async(postID:string, authorID:string, isAdmin:boolean) => {
+
+  const postData = await prisma.post.findUniqueOrThrow({
+    where : {
+      id : postID
+    }
+  })
+
+  // jodi 'admin' na hoy, and also login kora user er id 'post er author' er id er sathe match na kore tahole error throw koro
+  if(!isAdmin && (postData.authorId !== authorID)) {
+    throw new Error("Author not matched for delete!")
+  }
+
+  return await prisma.post.delete({
+    where : {
+      id : postID
+    }
+  })
+}
+
+
+
+
+const getStats = async () => {
+
+  // postCount, publishedPost, draftPost, archivedPost, totalComments, totalViews
+
+  return await prisma.$transaction(async(tx) => {
+
+    const totalPosts = await prisma.post.count()
+
+    const totalPublisedPost = await prisma.post.count({
+      // where : {
+
+      // }
+    })
+  })
+}
+
+
+
 
 
 export const postService = {
   createPost,
   getAllPosts,
   getPostById,
-  getUsersPosts
+  getUsersPosts,
+  updatePost,
+  deletePost,
+  getStats
 };
 
 
