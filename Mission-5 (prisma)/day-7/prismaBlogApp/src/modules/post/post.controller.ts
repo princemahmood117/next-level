@@ -194,8 +194,8 @@ const getStats = async(req:Request, res:Response) => {
 
     try {
 
-    await postService.getStats()
-    res.status(200).json()
+    const result = await postService.getStats()
+    res.status(200).json(result)
 }   
    catch (err) {
         const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  

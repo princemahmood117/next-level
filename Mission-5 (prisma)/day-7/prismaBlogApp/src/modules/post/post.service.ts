@@ -1,6 +1,7 @@
 import { CommentStatus, Post, PostStatus } from "../../../generated/prisma/client";
 import { PostWhereInput } from "../../../generated/prisma/models";
 import { prisma } from "../../lib/prisma";
+import { UserRole } from "../../middlewares/authMiddleware";
 
 // since the id, createdAt, updatedAt will be generated automatically so these fields are Ommitted (removed now) while createing post
 const createPost = async (
@@ -388,13 +389,83 @@ const getStats = async () => {
 
   return await prisma.$transaction(async(tx) => {
 
-    const totalPosts = await prisma.post.count()
+    const [totalPosts, totalPublisedPost, totalDraftPost, totalArchivedPost, totalComment, totalApprovedComment, totalRejectedComment, totalUsers, totalAdminCount, allUsersCount, totalViews] = await Promise.all([
 
-    const totalPublisedPost = await prisma.post.count({
-      // where : {
+    await tx.post.count(),    // result goes to the first element of the array == "totalPosts"
 
-      // }
+    await tx.post.count({     // result goes to the second element of the array == "totalPublisedPost"
+      where : {
+        status : PostStatus.PUBLISHED
+      }
+    }),
+
+    await tx.post.count({     // result goes to the third element of the array == "totalDraftPost"
+      where : {
+        status : PostStatus.DRAFT
+      }
+    }),
+
+    await tx.post.count({     // result goes to the fourth element of the array == "totalArchivedPost"
+      where : {
+        status : PostStatus.ARCHIVED
+      }
+    }),
+
+    await tx.comment.count(),
+
+    await tx.comment.count({
+      where : {
+        status : CommentStatus.APPROVED
+      }
+    }),
+
+    await tx.comment.count({
+      where : {
+        status : CommentStatus.REJECT
+      }
+    }),
+
+
+    await tx.user.count({
+      where : {
+        role : "USER"      }
+    }),
+
+
+    await tx.user.count({
+      where : {
+        role : "ADMIN"
+      }
+    }),
+
+
+    await tx.user.count(),
+
+    await tx.post.aggregate({
+      _sum : {
+        views : true
+      }
     })
+
+
+    ])
+
+    return {
+      totalPosts,
+      totalPublisedPost,
+      totalDraftPost,
+      totalArchivedPost,
+      totalComment,
+      totalApprovedComment,
+      totalRejectedComment,
+      totalUsers,
+      totalAdminCount,
+      allUsersCount,
+      totalViews : totalViews._sum.views
+
+
+    }
+
   })
 }
 
@@ -412,7 +483,8 @@ export const postService = {
   getUsersPosts,
   updatePost,
   deletePost,
-  getStats
+  getStats,
+
 };
 
 
