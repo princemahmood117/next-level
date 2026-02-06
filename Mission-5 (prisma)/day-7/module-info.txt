@@ -1,5 +1,20 @@
 day 7 will include : 
--> status change by admin
+
+-> divide the schemas into multiple schemas (post.schema, comment.schema, etc)
+
+-> create a subfolder "schema" inside the folder "prisma"
+
+-> move the schema.prisma into the "schema" sub-folder
+
+-> move the schema codes into seperate file (ex: all posts into post.schema)
+
+-> change the schema_location from prisma.config.ts : schema: "prisma/schema", [means all the schemas will be present inside this location/folder]
+
+-> set the output location to "output   = "../../generated/prisma"" in schema.prisma so that after running "npx prisma generate" the generated folder will be at the root
+
+
+
+
 
 Admin:   (to run the function for admin-seed: npm run seed:admin)
 princemahmood117@gmail.com 
