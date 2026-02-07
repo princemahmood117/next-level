@@ -1,0 +1,16 @@
+day 8 will include : Error Handling through Global
+
+
+
+
+
+
+Admin:   (to run the function for admin-seed: npm run seed:admin)
+princemahmood117@gmail.com 
+password : asdf1234
+
+User:
+iftekhar20300@gmail.com
+password : asdf1234
+
+
