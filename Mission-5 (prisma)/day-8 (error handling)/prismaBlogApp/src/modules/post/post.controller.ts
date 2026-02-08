@@ -136,7 +136,7 @@ const getUsersPosts = async(req:Request, res:Response) => {
 
 
 // update post
-const updatePost = async(req:Request, res:Response) => {
+const updatePost = async(req:Request, res:Response, next:NextFunction) => {
 
    try {
     const user = req.user;
@@ -155,11 +155,12 @@ const updatePost = async(req:Request, res:Response) => {
    }  
    
    catch (err) {
-        const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  
-        res.status(400).json({
-            error : "single user's Post update failed",
-            details : erroMessage
-        })
+        // const erroMessage = (err instanceof Error) ? err.message : "error inside single users post update!"  
+        // res.status(400).json({
+        //     error : "single user's Post update failed",
+        //     details : erroMessage
+        // })
+        next(err)
     }
 }
 
