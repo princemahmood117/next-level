@@ -1,1 +1,5 @@
 learning next js from the scratch
+
+
+
+create next project-command : npx create-next-app@latest my-app --yes
