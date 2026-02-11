@@ -5,3 +5,10 @@ learning next js from the scratch
 create next project-command : npx create-next-app@latest my-app --yes
 
 use shadcn/ui for ui components
+
+
+"use client"  ---> the THING is rendered on the browser only, not server
+
+* to use error.tsx, the component must have "use client" at the top
+
+* to use any hooks (useState/useEffect...) the component must have "use client" at the top

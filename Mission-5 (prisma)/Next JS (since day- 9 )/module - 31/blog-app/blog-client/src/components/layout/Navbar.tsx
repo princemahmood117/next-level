@@ -96,6 +96,8 @@ const Navbar = ({
             </div>
           </div>
 
+
+          {/* Login button */}
           <div className="flex gap-2">
             <ModeToggle></ModeToggle>
             <Button asChild variant="outline" size="sm" className="cursor-pointer">
@@ -148,7 +150,10 @@ const Navbar = ({
                     {menu.map((item) => renderMobileMenuItem(item))}
                   </Accordion>
 
+
+                  {/* mobile login buttons */}
                   <div className="flex flex-col gap-3">
+                    <ModeToggle></ModeToggle>
                     <Button asChild variant="outline">
                       <Link href={auth.login.url}>{auth.login.title}</Link>
                     </Button>

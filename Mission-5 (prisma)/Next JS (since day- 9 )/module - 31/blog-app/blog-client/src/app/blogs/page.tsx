@@ -1,6 +1,6 @@
 
 const Blogs = async() => {
-    await new Promise((r) => setInterval(r,4000))
+    await new Promise((r) => setInterval(r,2000))
 
     
     return (
