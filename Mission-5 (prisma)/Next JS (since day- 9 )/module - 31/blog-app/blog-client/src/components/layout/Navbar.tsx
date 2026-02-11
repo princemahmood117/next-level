@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import {NavigationMenu,NavigationMenuItem,NavigationMenuLink,NavigationMenuList} from "@/components/ui/navigation-menu";
 import {Sheet,SheetContent,SheetHeader,SheetTitle,SheetTrigger} from "@/components/ui/sheet";
 import Link from "next/link";
+import { ModeToggle } from "./ModeToggle";
 
 interface MenuItem {
   title: string;
@@ -96,6 +97,7 @@ const Navbar = ({
           </div>
 
           <div className="flex gap-2">
+            <ModeToggle></ModeToggle>
             <Button asChild variant="outline" size="sm" className="cursor-pointer">
               <Link href={auth.login.url}>{auth.login.title}</Link>
             </Button>
