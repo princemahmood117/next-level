@@ -6,6 +6,8 @@ import { useEffect } from "react";
 
 const AboutError = ({error, reset} : {error : Error & {digest?: string}; reset : () => void}) => {
 
+
+    // digest+error are came from nextjs
     useEffect(() => {
         console.log(error);
     },[])
