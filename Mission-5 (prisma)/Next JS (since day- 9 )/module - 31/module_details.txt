@@ -16,3 +16,7 @@ use shadcn/ui for ui components
 
 
 ** run project on production : npm run start
+
+
+use client ---> makes the component "client component" after built from server side
+	   ---> use this when there is needed "interactivity" (like form / hooks)
