@@ -36,6 +36,10 @@ interface Navbar1Props {
       title: string;
       url: string;
     };
+    dashboard: {
+      title: string;
+      url: string;
+    };
   };
 }
 
@@ -64,6 +68,7 @@ const Navbar = ({
   auth = {
     login: { title: "Login", url: "/login" },
     signup: { title: "Sign up", url: "/signup" },
+    dashboard: { title: "Dashboard", url: "/dashboard" },
   },
   className,
 }: Navbar1Props) => {
@@ -105,6 +110,9 @@ const Navbar = ({
             </Button>
             <Button asChild size="sm">
               <Link href={auth.signup.url}>{auth.signup.title}</Link>
+            </Button>
+            <Button asChild size="sm">
+              <Link href={auth.dashboard.url}>{auth.dashboard.title}</Link>
             </Button>
           </div>
 
