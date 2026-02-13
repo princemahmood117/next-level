@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sidebar"
 
 export default function DashboardLayout({children} : {children : React.ReactNode}) {
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -37,6 +38,8 @@ export default function DashboardLayout({children} : {children : React.ReactNode
             </BreadcrumbList>
           </Breadcrumb>
         </header>
+        
+        {/* dashboard UI here */}
         <div className="flex flex-1 flex-col gap-4 p-4">
           {children}
         </div>

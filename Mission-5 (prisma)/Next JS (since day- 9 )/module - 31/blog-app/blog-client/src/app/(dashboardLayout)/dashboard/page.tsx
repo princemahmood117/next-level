@@ -1,5 +1,5 @@
 
-const page = ({children} : {children : React.ReactNode}) => {
+const DashboardPage = ({children} : {children : React.ReactNode}) => {
     return (
         <div>
             this is dashboard
@@ -8,4 +8,4 @@ const page = ({children} : {children : React.ReactNode}) => {
     );
 };
 
-export default page;
+export default DashboardPage;
