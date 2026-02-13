@@ -12,3 +12,7 @@ use shadcn/ui for ui components
 * to use error.tsx, the component must have "use client" at the top
 
 * to use any hooks (useState/useEffect...) the component must have "use client" at the top
+
+
+
+** run project on production : npm run start

@@ -1,9 +1,14 @@
 
+
+export const dynamic = "force-dynamic"
+
+
+
 const AboutPage = async() => {
 
     await new Promise((resolve) => setInterval(resolve, 2000))
 
-    throw new Error("error occured after the resolve")
+    
 
     return (
         <div>
