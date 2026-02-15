@@ -10,6 +10,7 @@ const AnalyticsLayout = ({children} : {children : React.ReactNode}) => {
                 <Button asChild>
                     <Link href="/dashboard/analytics/weekly">Weekly</Link>
                 </Button>
+                
                 <Button asChild>
                     <Link href="/dashboard/analytics/monthly">Monthly</Link>
                 </Button>
