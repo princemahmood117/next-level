@@ -21,7 +21,9 @@ const PracticeLayout = ({children, marketingSlot, salesSlot} : {
                 {salesSlot}
             </div>
 
-            {children}
+            <div className='mt-4'>
+                {children}
+            </div>
         </div>
     );
 };
