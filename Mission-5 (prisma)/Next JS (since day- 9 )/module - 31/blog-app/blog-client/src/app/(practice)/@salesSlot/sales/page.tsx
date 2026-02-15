@@ -1,7 +1,7 @@
 
 const page = () => {
     return (
-        <div>
+        <div className="size-100 border-2 border-green-400">
            this is sales page 
         </div>
     );
