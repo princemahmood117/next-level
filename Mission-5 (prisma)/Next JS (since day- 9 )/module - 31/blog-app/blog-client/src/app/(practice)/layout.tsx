@@ -21,6 +21,7 @@ const PracticeLayout = ({children, marketingSlot, salesSlot} : {
                 {salesSlot}
             </div>
 
+{/* rendering children as usual routes */}
             <div className='mt-4'>
                 {children}
             </div>
