@@ -20,3 +20,5 @@ use shadcn/ui for ui components
 
 use client ---> makes the component "client component" after built from server side
 	   ---> use this when there is needed "interactivity" (like form / hooks)
+
+@(folder_name) ---> this also does not count as route
