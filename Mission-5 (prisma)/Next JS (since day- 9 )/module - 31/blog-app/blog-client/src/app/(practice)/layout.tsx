@@ -9,6 +9,7 @@ const PracticeLayout = ({children, marketingSlot, salesSlot} : {
 } ) => {
     return (
         <div>
+            {/* this is the navbar from the develoopemt menues */}
             <nav className='flex gap-10 m-8'>
                 <Link className='hover:underline' href={"/development"}>Development</Link>
                 <Link className='hover:underline' href={"/marketing"}>Marketing</Link>
