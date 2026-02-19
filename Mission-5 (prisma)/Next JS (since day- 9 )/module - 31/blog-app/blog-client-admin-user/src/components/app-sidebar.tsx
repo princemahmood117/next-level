@@ -36,12 +36,20 @@ export const data = {
       url: "#",
       items: [
         {
-          title: "Admin dashboard",
+          title: "Write blogs",
+          url: "/dashboard/write-blogs",
+        },
+        {
+          title: "Analytics",
+          url: "/dashboard/analytics",
+        },
+        {
+          title: "Admin Dashboard",
           url: "/admin-dashboard",
         },
         {
           title: "User Dashboard",
-          url: "/dashboard",
+          url: "/user-dashboard",
         },
       ],
     },
