@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sidebar"
 
 export default function DashboardLayout({admin, user} : {
+  // receive the admin and user parallel-routes as props
   admin : React.ReactNode,
   user : React.ReactNode,
 }) {
