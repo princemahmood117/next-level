@@ -2,3 +2,14 @@ Authentication / Security
 
 
  AAA framework : Authentication - Authorization - Accounting
+
+Authentication : Who are you?
+Authorization : What permission do you have?
+Accounting : For how long have you been in this site? / how many resources did you use?
+
+
+RBAC - Role Based Access Control (Admin can view something that Users cannot do)
+
+ABAC - Atrribute Based Access Control (Depends on the Dynamic Policy)
+
+
