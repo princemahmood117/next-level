@@ -1,0 +1,20 @@
+
+
+export const dynamic = "force-dynamic"
+
+
+
+const AboutPage = async() => {
+
+    await new Promise((resolve) => setInterval(resolve, 2000))
+
+    
+
+    return (
+        <div>
+            <p>this is about page component</p>
+        </div>
+    );
+};
+
+export default AboutPage;
