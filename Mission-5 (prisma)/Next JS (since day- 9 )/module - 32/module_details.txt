@@ -1,7 +1,7 @@
 Authentication / Security
 
 
- AAA framework : Authentication - Authorization - Accounting
+AAA framework : Authentication - Authorization - Accounting
 
 Authentication : Who are you?
 Authorization : What permission do you have?
@@ -14,10 +14,13 @@ ABAC - Atrribute Based Access Control (Depends on the Dynamic Policy)
 
 ------------------------------------------------------------------------------------
 
-Session based auth systme : creates a sesssion on database
+Session based auth systme : creates a "sesssion_data" on database
 	-> session_id
 	-> token
 	-> User_id
 	-> expiration_time
+
+
+Better Auth --  Uses Session Based authentication
 
 
