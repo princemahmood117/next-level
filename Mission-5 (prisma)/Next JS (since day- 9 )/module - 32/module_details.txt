@@ -12,4 +12,12 @@ RBAC - Role Based Access Control (Admin can view something that Users cannot do)
 
 ABAC - Atrribute Based Access Control (Depends on the Dynamic Policy)
 
+------------------------------------------------------------------------------------
+
+Session based auth systme : creates a sesssion on database
+	-> session_id
+	-> token
+	-> User_id
+	-> expiration_time
+
 
