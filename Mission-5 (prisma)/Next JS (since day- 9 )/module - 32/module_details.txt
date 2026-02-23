@@ -24,3 +24,6 @@ Session based auth systme : creates a "sesssion_data" on database
 Better Auth --  Uses Session Based authentication
 
 
+this session will integrate with the backend with frontend
+
+
