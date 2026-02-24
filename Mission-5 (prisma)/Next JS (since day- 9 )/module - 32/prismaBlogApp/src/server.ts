@@ -2,6 +2,10 @@ import app from "./app";
 import { prisma } from "./lib/prisma";
 const PORT = process.env.PORT;
 
+
+
+// this is the server ts file which connects the prisma
+
 const main = async () => {
     try {
         await prisma.$connect();
