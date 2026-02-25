@@ -24,7 +24,7 @@ app.all("/api/auth/*splat", toNodeHandler(auth));
 
 
 
-
+// this is the route for all the posts
 app.use('/posts', postRouter);
 
 
