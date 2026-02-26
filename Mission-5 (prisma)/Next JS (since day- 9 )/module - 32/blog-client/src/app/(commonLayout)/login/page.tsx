@@ -1,17 +1,5 @@
 
-// const LoginPage = () => {
-//     return (
-//         <div>
-//             this is login page
-//         </div>
-//     );
-// };
-
-// export default LoginPage;
-
-
-
-import { LoginForm } from "@/components/login-form"
+import { LoginForm } from "@/components/modules/authentication/login-form"
 
 export default function LoginPage() {
   return (

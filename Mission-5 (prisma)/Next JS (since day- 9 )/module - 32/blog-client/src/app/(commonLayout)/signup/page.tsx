@@ -1,17 +1,8 @@
 
-// const SignUpPage = () => {
-//     return (
-//         <div>
-//             this is signup page
-//         </div>
-//     );
-// };
-
-// export default SignUpPage;
 
 
 
-import { SignupForm } from "@/components/signup-form"
+import { SignupForm } from "@/components/modules/authentication/signup-form"
 
 export default function Page() {
   return (
