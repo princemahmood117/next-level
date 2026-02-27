@@ -21,6 +21,8 @@ export function LoginForm({
 }: React.ComponentProps<"div">) {
 
 
+
+  
   const handleGoogleLogin = async() => {
 
     const data = authClient.signIn.social({
@@ -30,6 +32,10 @@ export function LoginForm({
 
     console.log(data);
   }
+
+
+  const useSessionClient = authClient.useSession()
+  console.log('useSessionClient : ', useSessionClient);
 
 
   return (
