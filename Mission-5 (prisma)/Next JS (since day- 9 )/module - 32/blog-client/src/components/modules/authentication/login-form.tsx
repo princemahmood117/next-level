@@ -22,7 +22,7 @@ export function LoginForm({
 
 
 
-  
+  //  funtion to implement google login feature
   const handleGoogleLogin = async() => {
 
     const data = authClient.signIn.social({
