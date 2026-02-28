@@ -1,17 +1,5 @@
 Authentication / Security
 
-
-AAA framework : Authentication - Authorization - Accounting
-
-Authentication : Who are you?
-Authorization : What permission do you have?
-Accounting : For how long have you been in this site? / how many resources did you use?
-
-
-RBAC - Role Based Access Control (Admin can view something that Users cannot do)
-
-ABAC - Atrribute Based Access Control (Depends on the Dynamic Policy)
-
 ------------------------------------------------------------------------------------
 
 Session based auth systme : creates a "sesssion_data" on database
@@ -24,11 +12,10 @@ Session based auth systme : creates a "sesssion_data" on database
 Better Auth --  Uses Session Based authentication
 
 
-this session will integrate with the backend with frontend
-
-
 ** if a component is "server_component", then the cookie will never go automatically to the server **
 
  - so we capture the cookie manually and send it to the server
+
+ - cookie can be get(capture) in the server component
 
 

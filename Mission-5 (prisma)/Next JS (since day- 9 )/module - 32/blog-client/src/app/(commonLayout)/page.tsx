@@ -1,14 +1,24 @@
 
 
-import { authClient } from "@/lib/auth-client";
+import { cookies } from "next/headers";
 
 export default async function Home() {
 
+  // get cookie in the server component
+  const cookieStore = await cookies();
 
-  // this is the session after the login but wont work
-  const session = await authClient.getSession()
+  console.log('cookie store : ', cookieStore.toString());
 
-  console.log("session from auth-client", session);
+  const res = await fetch("http://localhost:5000/api/auth/get-session", {
+    headers : {
+      Cookie : cookieStore.toString()
+    },
+    cache : 'no-cache',
+  })
+  
+  const session = await res.json()
+
+  console.log('this is the session : ', session);
 
   
   return (
