@@ -19,3 +19,16 @@ Better Auth --  Uses Session Based authentication
  - cookie can be get(capture) in the server component
 
 
+*** Fetch related **
+
+--> in server_component, only 'fetch()' is used. not even axios can be used
+--> in client_component, we can use react_query/rtk_query for data fetching
+
+--> those can be used in client_component cannot be used in server_component
+
+
+------------ USE --------------> 
+-> highly interactive component(data updates very frequently) == client component
+=> less interactive(blog page, data doesnot updates frequently) == server component (next js recommends)
+
+
