@@ -2,7 +2,17 @@
 
 // import { cookies } from "next/headers";
 
+import { userService } from "@/service/user.service";
+
 export default async function Home() {
+
+  const {data} = await userService.getSession()
+
+  console.log('session from the service', data);
+
+
+
+  
 
   // // get cookie in the server component
   // const cookieStore = await cookies();

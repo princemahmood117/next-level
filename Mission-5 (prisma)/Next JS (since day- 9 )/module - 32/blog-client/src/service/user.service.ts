@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 
 export const userService = {
   getSession: async function () {
-    
+
 try {
 
     // get cookie in the server component
@@ -19,15 +19,15 @@ try {
 
     const session = await res.json();
 
-    if(!session) {
-
+    if(session === null) {
+        return {data : null, error : {message : "data is found null..."}}
     }
 
-    
+    return {data : session, error : null}
 
-    console.log("this is the session : ", session);
 } catch (error) {
-    console.log(error,{message : "error on the try-catch"});
+    console.log(error);
+    return {data : null, error : {message : "Something wrong in the try catch"}};
 }
   },
 };
