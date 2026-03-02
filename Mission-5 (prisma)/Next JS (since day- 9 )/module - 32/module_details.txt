@@ -32,3 +32,11 @@ Better Auth --  Uses Session Based authentication
 => less interactive(blog page, data doesnot updates frequently) == server component (next js recommends)
 
 
+
+-------------------- ENV variables use -----------------------------------------
+-> create a env.ts file inside src
+-> import createEnv function and use it to write the type-safe env variables in server/client/runtimeEnv
+-> import the env.ts file inside next.config.ts and now use the env file to access the API's
+
+
+
