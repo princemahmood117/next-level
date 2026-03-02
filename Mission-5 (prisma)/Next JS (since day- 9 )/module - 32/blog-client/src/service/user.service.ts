@@ -31,3 +31,6 @@ try {
 }
   },
 };
+
+
+// no cache means this cookie will not be cached ever (by default nextjs does that)
