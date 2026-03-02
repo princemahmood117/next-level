@@ -1,5 +1,9 @@
 import { cookies } from "next/headers";
 
+const AUTH_URL = process.env.AUTH_URL
+
+console.log(AUTH_URL);
+
 export const userService = {
   getSession: async function () {
 
@@ -10,7 +14,8 @@ try {
 
     console.log("cookie store : ", cookieStore.toString());
 
-    const res = await fetch("http://localhost:5000/api/auth/get-session", {
+
+    const res = await fetch(`${AUTH_URL}/get-session`, {
       headers: {
         Cookie: cookieStore.toString(),
       },
