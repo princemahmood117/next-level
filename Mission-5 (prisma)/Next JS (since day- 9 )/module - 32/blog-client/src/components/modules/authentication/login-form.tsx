@@ -27,7 +27,7 @@ export function LoginForm({
 
     const data = authClient.signIn.social({
       provider : "google",
-      callbackURL : "http://localhost:3000"
+      callbackURL : "http://localhost:3000",      
     })
 
     console.log(data);

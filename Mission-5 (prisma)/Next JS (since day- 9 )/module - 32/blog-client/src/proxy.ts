@@ -12,7 +12,7 @@ export const proxy = async (request : NextRequest) => {
     const {data} = await userService.getSession()
     console.log("data from proxy ", data);
 
-    // if session exists
+    // if session exists nd the user is 'admin'
     if(data) {
         isAuthenticated = true;
         isAdmin = data.user.role === Roles.user
