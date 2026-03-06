@@ -10,8 +10,9 @@ export const blogService = {
             const res = await fetch(`${API_URL}/posts`)
             
             const data = await res.json()
+            // sent the data to the page
             
-            return {data : data, error : null}
+            return {data : data.posts, error : null}
 
         } 
         
