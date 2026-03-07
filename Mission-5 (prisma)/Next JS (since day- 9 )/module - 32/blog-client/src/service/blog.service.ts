@@ -2,6 +2,11 @@ import { env } from "@/env"
 
 const API_URL = env.API_URL
 
+// types of the params
+
+interface GetPostSearchParams {
+    isFeatured : boolean,
+}
 
 export const blogService = {
     getBlogsPost : async function() {
