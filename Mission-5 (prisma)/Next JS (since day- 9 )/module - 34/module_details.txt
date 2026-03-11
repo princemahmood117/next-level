@@ -16,7 +16,11 @@ Authentication / Security + Data Fetch
 => less interactive (blog page, data doesnot updates frequently) == server component (next js recommends)
 
 
-// data fetching
+
+	-------------------- ENV variables use --------------------
+-> create a env.ts file inside src    [install "@t3-oss/env-nextjs" and zod]
+-> import createEnv function and use it to write the type-safe env variables in server/client/runtimeEnv
+-> import the env.ts file inside next.config.ts and now use the env file to access the API's
 
 
 			------------ Caching ------------
