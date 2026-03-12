@@ -1,33 +1,18 @@
-Authentication / Security + Data Fetch
+ DATA FETCH
 
 
-
-			************ Fetch related ************
-
---> in server_component, only 'fetch()' is used. not even axios can be used
-
---> in client_component, we can use react_query/rtk_query for data fetching
-
---> those can be used in client_component cannot be used in server_component
+			------------ Dynamic Routing ------------
 
 
-			------------ USE --------------> 
--> highly interactive (data updates very frequently) == client component
-=> less interactive (blog page, data doesnot updates frequently) == server component (next js recommends)
+Dynamic routes are created :
+Blogs
+|------[id]
+	|----page.tsx  // this is dynamic route page 
+page.tsx
 
 
+(*) ডায়নমিক রাউট গুলোর Default Behaviour : ডাটা গুলো কে SSR করে দেয়
 
-	-------------------- ENV variables use --------------------
--> create a env.ts file inside src    [install "@t3-oss/env-nextjs" and zod]
--> import createEnv function and use it to write the type-safe env variables in server/client/runtimeEnv
--> import the env.ts file inside next.config.ts and now use the env file to access the API's
+(*) generateStaticParams() এর মাধ্যমে ডাইনামিক রাউটের ডাটা কে SSG(static) করতে পারি।  তাহলে যদি "generateStaticParams" এর ভেতর থেকে ৩ টা ডাটা রিটার্ন করি ,সেক্ষেত্রে শুধু সেই ৩ টা ডাটাই স্ট্যাটিক হবে, বাকি ডাটা গুলো নরমাল বিহেভিয়ার পাবে, মানে বাকি ডাটা গুলো হবে "On demand"
 
-
-			------------ Caching ------------
-
-যদি ক্যাশিং করতে বাধা না দেই তাহলে বর্তমানে যা ডাটা আছে সেগুলো দিয়েই স্ট্যাটিক ভাবেই বিল্ড করে ফেলবে এবং সবসমইয় এমন ডাটাই দেখাবে যতই নতুন ডাটা এড করি না কেনো!
-to stop caching : after the API-Call, use "{cache : "no-store"}"
-
-===>> {cache : no-store} --> SSR (server side rendering / dynamic page) 
-===>> {next : {reValidate : 10}} --> ISR (mix between SSR and SSG/static site generation)
-
+study case: Route Segment Config

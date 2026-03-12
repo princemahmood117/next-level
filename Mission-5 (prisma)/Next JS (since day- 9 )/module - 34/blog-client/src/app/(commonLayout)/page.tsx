@@ -1,5 +1,4 @@
 
-
 import BlogCard from "@/components/modules/homepage/BlogCard";
 import { blogService } from "@/service/blog.service";
 import { BlogPost } from "@/types";
@@ -13,7 +12,8 @@ export default async function Home() {
   }, {
     cache : "no-store",
     // revalidate : 10
-  })
+  }
+)
 
   console.log(data.posts);
 

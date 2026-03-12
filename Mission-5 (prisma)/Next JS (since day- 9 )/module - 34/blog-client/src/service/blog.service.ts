@@ -58,5 +58,23 @@ export const blogService = {
             return {data : null, error : {message : "Something went wrong"}}
         }
 
+    },
+
+
+
+
+    
+    // get post by ID
+    getBlogsByID : async function (id:string) {
+        try {
+            const res = await fetch(`${API_URL}/posts/${id}`)
+
+            const data = await res.json()
+
+            return {data : data, error : null}
+        }      
+        catch (err) {
+            return {data : null, error : {message : "Something went wrong fetching dynamic data"}}
+        }
     }
 }
