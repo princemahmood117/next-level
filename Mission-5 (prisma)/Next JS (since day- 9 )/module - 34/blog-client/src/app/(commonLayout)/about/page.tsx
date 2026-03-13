@@ -12,7 +12,7 @@ const AboutPage = async() => {
 
     return (
         <div>
-            <p>this is about page component</p>
+            <p>this is about page component for loading the data</p>
         </div>
     );
 };
