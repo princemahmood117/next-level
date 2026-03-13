@@ -22,6 +22,7 @@ try {
       cache: "no-cache",
     });
 
+    
     const session = await res.json();
 
     if(session === null) {

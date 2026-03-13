@@ -1,10 +1,11 @@
- DATA FETCH
+  /////// DATA FETCH /////// 
 
 
-			------------ Dynamic Routing ------------
+			------------> Dynamic Routing <------------
 
 
 Dynamic routes are created :
+
 Blogs
 |------[id]
 	|----page.tsx  // this is dynamic route page 
@@ -14,5 +15,13 @@ page.tsx
 (*) ডায়নমিক রাউট গুলোর Default Behaviour : ডাটা গুলো কে SSR করে দেয়
 
 (*) generateStaticParams() এর মাধ্যমে ডাইনামিক রাউটের ডাটা কে SSG(static) করতে পারি।  তাহলে যদি "generateStaticParams" এর ভেতর থেকে ৩ টা ডাটা রিটার্ন করি ,সেক্ষেত্রে শুধু সেই ৩ টা ডাটাই স্ট্যাটিক হবে, বাকি ডাটা গুলো নরমাল বিহেভিয়ার পাবে, মানে বাকি ডাটা গুলো হবে "On demand"
+
+(*) we cannot write 'async' inside client component
+
+(*) there is a "bridge" between server-component and client-component which is called "SERVER FUNCTION"
+	-> আমরা কোনো সার্ভারের জিনিস সার্ভার সাইডে রান করবো কিন্তু তা ক্লাইয়েন্ট সাইডে ব্যবহার করে ফেলতে পারবো
+
+--> "use server" দিয়ে সার্ভার সাইডে কোনো ফাংশন বানায়ে তা এক্সপোর্ট করে, ক্লাইয়েন্ট কম্পোনেন্ট এ  "use client" এর ভেতরে ইম্পোর্ট করে ব্যবহার করা যাবে, এটাই সেই "ব্রীজ"/ Server Function
+
 
 study case: Route Segment Config

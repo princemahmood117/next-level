@@ -1,18 +1,29 @@
+"use client"
+
+import { blogService } from "@/service/blog.service";
+import { useEffect, useState } from "react";
+
+// can not write 'async' inside client component
 
 
-// export const dynamic = "force-dynamic"
+const AboutPage = () => {
 
 
+    const [data, setData] = useState();
 
-const AboutPage = async() => {
+    useEffect(() => {
 
-    await new Promise((resolve) => setInterval(resolve, 2000))
+        (async() => {
+            const {data} = await blogService.getBlogsPost()
 
-    
+            setData(data)
+        })()
+    },[])
+
 
     return (
         <div>
-            <p>this is about page component for loading the data</p>
+            <p>this is about page component for loading the data {data}</p>
         </div>
     );
 };
