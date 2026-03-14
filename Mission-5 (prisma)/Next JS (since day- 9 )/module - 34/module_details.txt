@@ -23,5 +23,7 @@ page.tsx
 
 --> "use server" দিয়ে সার্ভার সাইডে কোনো ফাংশন বানায়ে তা এক্সপোর্ট করে, ক্লাইয়েন্ট কম্পোনেন্ট এ  "use client" এর ভেতরে ইম্পোর্ট করে ব্যবহার করা যাবে, এটাই সেই "ব্রীজ"/ Server Function
 
+// this part is crucial to understand
+
 
 study case: Route Segment Config
