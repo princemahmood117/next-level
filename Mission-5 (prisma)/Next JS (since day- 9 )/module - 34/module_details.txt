@@ -26,5 +26,6 @@ page.tsx
 // this part is crucial to understand
 
 // random text of module 34
+// another random text
 
 study case: Route Segment Config
