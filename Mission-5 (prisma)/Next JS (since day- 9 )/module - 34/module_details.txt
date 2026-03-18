@@ -27,6 +27,5 @@ page.tsx
 
 // random text of module 34
 // another random text
-// another 2nd random commit text
 
 study case: Route Segment Config
