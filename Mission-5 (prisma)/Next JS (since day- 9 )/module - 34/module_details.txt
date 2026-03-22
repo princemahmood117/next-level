@@ -28,6 +28,6 @@ page.tsx
 // random text of module 34
 // another random text
 // updated random text
-// eid mubarak 2
+// eid mubarak again
 
 study case: Route Segment Config
