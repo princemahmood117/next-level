@@ -24,6 +24,7 @@ Authentication / Security + Data Fetch
 
 
 			------------ Caching ------------
+hmmmmmm
 
 যদি ক্যাশিং করতে বাধা না দেই তাহলে বর্তমানে যা ডাটা আছে সেগুলো দিয়েই স্ট্যাটিক ভাবেই বিল্ড করে ফেলবে এবং সবসমইয় এমন ডাটাই দেখাবে যতই নতুন ডাটা এড করি না কেনো!
 to stop caching : after the API-Call, use "{cache : "no-store"}"
