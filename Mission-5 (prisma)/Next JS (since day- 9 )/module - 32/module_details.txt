@@ -29,7 +29,7 @@ Better Auth --  Uses Session Based authentication
 
 ------------ USE --------------> 
 -> highly interactive component(data updates very frequently) == client component
-=> less interactive(blog page, data doesnot updates frequently) == server component (next js recommends)
+=> less interactive(blog page, data doesnot updates frequently) == server component (next js recommends).
 
 
 
