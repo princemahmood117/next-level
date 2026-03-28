@@ -25,6 +25,6 @@ page.tsx
 
 // this part is crucial to understand
 
-// tanstack form
+// tanstack form implemented
 
 study case: Route Segment Config
