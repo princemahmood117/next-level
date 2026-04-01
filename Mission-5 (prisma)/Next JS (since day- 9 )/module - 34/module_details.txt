@@ -25,6 +25,8 @@ page.tsx
 
 // module done
 
+static and dynamic
+
 
 
 study case: Route Segment Config
