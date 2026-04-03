@@ -9,7 +9,7 @@ const CreateBlogFormServer = () => {
     const createBlog = async(formData : FormData) => {
         "use server"
 
-        console.log(formData.get("title...."));
+        console.log(formData.get("title....")); // form data will be here
 
     } 
   return (
