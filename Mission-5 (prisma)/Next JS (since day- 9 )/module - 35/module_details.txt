@@ -9,5 +9,7 @@
 
 // action দরকারি ডাটা গুলো নিবে formData থেকে
 
+// use server will render the data into server side
+
 
 study case: Route Segment Config
