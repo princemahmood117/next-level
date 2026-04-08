@@ -45,6 +45,8 @@ export const blogService = {
                 config.next = {revalidate : options.revalidate}
             }
 
+            config.next = {...config.next, tags : ["blogPosts"]} // tags == label for the cache data
+
             const res = await fetch(url.toString(), config) 
             
             
