@@ -10,4 +10,7 @@
 // action দরকারি ডাটা গুলো নিবে formData থেকে
 
 
+// actual component == user-interaction && nextjs server == cache/data_post
+
+
 study case: Route Segment Config
