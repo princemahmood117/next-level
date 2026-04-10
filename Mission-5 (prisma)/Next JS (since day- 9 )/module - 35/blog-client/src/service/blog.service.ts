@@ -90,8 +90,9 @@ export const blogService = {
     },
 
 
-    // create blog
 
+
+    // create blog
     createBlogPost: async (blogData: BlogData) => {
     try {
       const cookieStore = await cookies();
@@ -115,7 +116,8 @@ export const blogService = {
       }
 
       return { data: data, error: null };
-    } catch (err) {
+    } 
+    catch (err) {
       return { data: null, error: { message: "Something Went Wrong" } };
     }
   },
