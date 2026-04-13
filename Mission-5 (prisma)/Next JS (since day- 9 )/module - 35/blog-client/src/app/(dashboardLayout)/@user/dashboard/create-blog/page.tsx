@@ -4,8 +4,6 @@ import { blogService } from "@/service/blog.service";
 import { BlogPost } from "@/types";
 
 
-
-
 const CreateBlogPage = async () => {
 
     const {data} = await blogService.getBlogsPost({}, {cache : "no-store"})

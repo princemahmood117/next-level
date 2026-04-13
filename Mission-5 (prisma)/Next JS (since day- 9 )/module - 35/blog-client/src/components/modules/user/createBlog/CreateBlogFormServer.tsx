@@ -47,8 +47,6 @@ const CreateBlogFormServer = () => {
       revalidateTag("blogPosts", "max")
     }
 
-
-
   };
 
 
