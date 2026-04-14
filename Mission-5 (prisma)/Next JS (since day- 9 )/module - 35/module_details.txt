@@ -13,6 +13,6 @@
 // actual component == user-interaction && nextjs server == cache/data_post
 
 // have to understand the server client side..........
-
+.................
 
 study case: Route Segment Config
