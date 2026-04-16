@@ -16,4 +16,6 @@
 
 // search params for url
 
+// use await before using searchParams
+
 study case: Route Segment Config
