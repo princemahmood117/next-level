@@ -13,9 +13,6 @@
 // actual component == user-interaction && nextjs server == cache/data_post
 
 // have to understand the server client side
-
-// search params for url
-
-// use await before using searchParams
+// user history doing
 
 study case: Route Segment Config
