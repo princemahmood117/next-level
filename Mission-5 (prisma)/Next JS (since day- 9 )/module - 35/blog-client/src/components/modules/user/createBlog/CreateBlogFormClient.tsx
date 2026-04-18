@@ -23,7 +23,6 @@ import { toast } from "sonner";
 import { z } from "zod";
 
 const blogSchema = z.object({
-
   title: z.string().min(3, "Title must be at least 3 characters").max(200, "Title must be less than 200 characters"),
 
   content: z.string().min(10, "Content must be at least 10 characters").max(5000, "Content must be less than 5000 characters"),
@@ -38,9 +37,11 @@ export function CreateBlogFormClient() {
       content: "",
       tags: "",
     },
+
     validators: {
       onSubmit: blogSchema,
     },
+
     onSubmit: async ({ value }) => {
       const toastId = toast.loading("Creating....");
 
@@ -80,19 +81,20 @@ export function CreateBlogFormClient() {
         </CardDescription>
       </CardHeader>
 
-
       <CardContent>
         <form
           id="blog-post"
           onSubmit={(e) => {
             e.preventDefault();
             form.handleSubmit();
-          }}>
+          }}
+        >
           <FieldGroup>
             <form.Field
               name="title"
               children={(field) => {
-                const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid;
+                const isInvalid =
+                  field.state.meta.isTouched && !field.state.meta.isValid;
                 return (
                   <Field data-invalid={isInvalid}>
                     <FieldLabel htmlFor={field.name}>Title</FieldLabel>
@@ -161,8 +163,7 @@ export function CreateBlogFormClient() {
           </FieldGroup>
         </form>
       </CardContent>
-
-
+      
       <CardFooter className="flex flex-col">
         <Button form="blog-post" type="submit" className="w-full">
           Submit

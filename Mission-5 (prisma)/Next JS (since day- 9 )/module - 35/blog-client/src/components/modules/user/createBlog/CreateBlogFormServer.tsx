@@ -24,6 +24,8 @@ const CreateBlogFormServer = () => {
     const content = formData.get("content") as string
     const tags = formData.get("tags") as string
 
+
+
     const blogData = {
         title,
         content,
@@ -41,11 +43,14 @@ const CreateBlogFormServer = () => {
       },
       body : JSON.stringify(blogData)
     })
+    
     console.log('response : ', res);
 
     if(res.ok) {
       revalidateTag("blogPosts", "max")
     }
+
+
 
   };
 

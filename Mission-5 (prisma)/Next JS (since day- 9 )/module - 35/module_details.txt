@@ -12,7 +12,8 @@
 
 // actual component == user-interaction && nextjs server == cache/data_post
 
-// have to understand the server client side
-// user history doing
+
+// data are being showed in the history page 
+
 
 study case: Route Segment Config

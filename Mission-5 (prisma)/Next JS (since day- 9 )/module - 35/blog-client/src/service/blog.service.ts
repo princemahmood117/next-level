@@ -1,20 +1,19 @@
-import { env } from "@/env"
+import { env } from "@/env";
 import { cookies } from "next/headers";
 
-const API_URL = env.API_URL
+const API_URL = env.API_URL;
 
 // type define for search params
 interface GetBlogParams {
-    isFeatured? : boolean,
-    search? : string,
+  isFeatured?: boolean;
+  search?: string;
 }
 
 // type define for options
 interface ServiceOptions {
-    cache? : RequestCache,
-    revalidate? : number,
+  cache?: RequestCache;
+  revalidate?: number;
 }
-
 
 export interface BlogData {
   title: string;
@@ -22,78 +21,73 @@ export interface BlogData {
   tag?: string[];
 }
 
-
 export const blogService = {
-    getBlogsPost : async function(params?: GetBlogParams, options?: ServiceOptions) {
+  getBlogsPost: async function (
+    params?: GetBlogParams,
+    options?: ServiceOptions,
+  ) {
+    try {
+      const url = new URL(`${API_URL}/posts`);
 
-        try {
+      // console.log('params inside object : ', Object.entries(params)); // returns an array
 
-            const url = new URL(`${API_URL}/posts`)
+      if (params) {
+        Object.entries(params).forEach(([key, value]) => {
+          console.log("key : ", key, "value : ", value);
+          if (value !== undefined && value !== null && value !== "") {
+            url.searchParams.append(key, value);
+          }
+        });
+      }
 
-            // console.log('params inside object : ', Object.entries(params)); // returns an array
+      console.log("url.toString : ", url.toString());
 
-            if(params) {
-                Object.entries(params).forEach(([key , value]) => {
-                    console.log('key : ',key , 'value : ', value );
-                    if(value !== undefined && value !==null  && value !== "") {
-                        url.searchParams.append(key, value)
-                    }
-                })
-            }
+      const config: RequestInit = {};
 
-            
-            console.log('url.toString : ', url.toString());
+      if (options?.cache) {
+        config.cache = options.cache;
+      }
+      if (options?.revalidate) {
+        config.next = { revalidate: options.revalidate };
+      }
 
-            const config:RequestInit = {}
+      config.next = { ...config.next, tags: ["blogPosts"] }; // tags == label for the cache data
 
-            if(options?.cache) {
-                config.cache = options.cache
-            }
-            if(options?.revalidate) {
-                config.next = {revalidate : options.revalidate}
-            }
+      const res = await fetch(url.toString(), config);
 
-            config.next = {...config.next, tags : ["blogPosts"]} // tags == label for the cache data
+      const data = await res.json();
 
-            const res = await fetch(url.toString(), config) 
-            
-            
-            const data = await res.json()
-            
-            return {data : data, error : null}
-
-        } 
-        
-        catch (err) {
-            return {data : null, error : {message : "Something went wrong"}}
-        }
-
-    },
+      return { data: data, error: null };
+    } catch (err) {
+      return { data: null, error: { message: "Something went wrong" } };
+    }
+  },
 
 
 
 
-    
-    // get post by ID
-    getBlogsByID : async function (id:string) {
-        try {
-            const res = await fetch(`${API_URL}/posts/${id}`)
+  // get post by ID
+  getBlogsByID: async function (id: string) {
+    try {
+      const res = await fetch(`${API_URL}/posts/${id}`);
 
-            const data = await res.json()
+      const data = await res.json();
 
-            return {data : data, error : null}
-        }      
-        catch (err) {
-            return {data : null, error : {message : "Something went wrong fetching dynamic data"}}
-        }
-    
-    },
-
-
+      return { data: data, error: null };
+    } catch (err) {
+      return {
+        data: null,
+        error: { message: "Something went wrong fetching dynamic data" },
+      };
+    }
+  },
 
 
-    // create blog
-    createBlogPost: async (blogData: BlogData) => {
+
+
+  // create blog
+
+  createBlogPost: async function (blogData : BlogData) {
     try {
       const cookieStore = await cookies();
 
@@ -106,30 +100,19 @@ export const blogService = {
         body: JSON.stringify(blogData),
       });
 
-      const data = await res.json();
+      const data = await res.json()
 
-      if (data.error) {
-        return {
-          data: null,
-          error: { message: "Error: Post not created." },
-        };
+      if(data.error) {
+        return {data : null, error : {message : "ERROR : POST NOT CREATED..."}}
       }
 
-      return { data: data, error: null };
+      return {data : data, error : null}
+
+
     } 
+    
     catch (err) {
-      return { data: null, error: { message: "Something Went Wrong" } };
+      return { data: null, error: { message: "Something went wrong..!" } };
     }
   },
-
-
-
-
-
-
-
-
-
-
-
-}
+};
