@@ -13,7 +13,90 @@
 // actual component == user-interaction && nextjs server == cache/data_post
 
 
-// data are being showed in the history page 
+-----------------------------------------------------------------------------------------
+ visual data flow of search-params : 
 
+Current URL: ?page=2
+     ↓
+searchParams (read-only) = { page: "2" }
+     ↓
+searchParams.toString() = "page=2"
+     ↓
+new URLSearchParams("page=2") = params (modifiable)
+     ↓
+params.set("page", "3")
+     ↓
+params = { page: "3" }
+     ↓
+params.toString() = "page=3"
+     ↓
+router.push("?page=3")
+     ↓
+New URL: ?page=3
+
+
+--------------------------------------------------------------------------------
+
+Pagination Logic : 
+//* showing 1 to 5 of 21 --> page 1   
+//* showing 6 to 10 of 21 --> page 2   
+//* showing 11 to 15 of 21 --> page 3 (and so on)   
+
+  const start = (currentPage - 1) * limit + 1; // {(1-1)*5}+1 = 1 (start_value for page 1) | {(2-1)*5}+1 = 6 (start_value for page 2)
+
+  const end = Math.min(currentPage * limit, totalCount); // 1 * 5 = 5 (end_value for page-1) | 2 * 5 = 10 (end_value for page-2)
+
+
+-----------------------------------------------------------------------------------
+
+Image Optimization : 
+
+time-line	format			type			resolution		size
+
+Before		img			jpeg			
+
+
+After					webp
+
+
+
+
+FOR NEXT-IMAGE OPTIMIZATION for "hard-quoted image link" inside module.config.ts
+
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+      },
+    ],
+  },
+}
+
+
+
+THIS IS DONE :
+
+const nextConfig: NextConfig = {
+  /* config options here */
+    images: {
+    formats : ["image/avif", "image/webp"], // by default format will be avif, if not supported then webp
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co.com',
+      },
+    ],
+  },
+};
+export default nextConfig;
+
+
+
+
+// npm i sharp 
+
+while building the project, nextjs will use 'sharp' package for compressing so that the pressure on the cpu reduces
 
 study case: Route Segment Config

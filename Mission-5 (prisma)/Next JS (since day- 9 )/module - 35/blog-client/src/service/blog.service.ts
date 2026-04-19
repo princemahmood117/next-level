@@ -7,6 +7,8 @@ const API_URL = env.API_URL;
 interface GetBlogParams {
   isFeatured?: boolean;
   search?: string;
+  page?: string;
+  limit? : string
 }
 
 // type define for options
@@ -22,6 +24,7 @@ export interface BlogData {
 }
 
 export const blogService = {
+
   getBlogsPost: async function (
     params?: GetBlogParams,
     options?: ServiceOptions,
