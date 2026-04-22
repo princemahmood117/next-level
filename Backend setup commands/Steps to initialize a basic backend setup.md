@@ -1,0 +1,128 @@
+## Steps to initialize a basic Backend setup using Typescript + Postgres
+
+
+
+1\. node application initialize for package.json ---> *npm init -y*
+
+
+
+2\. install necessary packages ---> *npm i express cors typescript tsx*
+
+
+
+3\. To initialize a TypeScript project and generate a tsconfig.json ---> *npx tsc --init*
+
+
+
+4\. to install typescript\_execute : *npm i tsx*
+
+
+
+
+
+\-------------------------------------------------------------------------------------------------------
+
+5\. inside **tsconfig.json**, modify the follwing :					      
+
+&#x09;// uncomment rootdir and outdir						     
+
+&#x09;// uncomment ("lib": \["esnext"], "types": \["node"])			      
+
+&#x09;// install node type ---> *npm install -D @types/node*
+
+&#x09;		      
+
+&#x20;  **after posgres is installed** **:** \[follwing documentation] 			      
+
+&#x09;*// change module to : "module": "esnext","moduleResolution": "bundler",*       
+
+&#x09;		      *"target": "es2023", "esModuleInterop": true,*	      
+
+&#x09;		      *"ignoreDeprecations": "6.0",*
+
+&#x09;*after first object, write : "include": \["src/\*\*/\*"] -->* to include all the things after src			      
+
+\-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+6\. create a folder 'src' and inside src - create server.ts + app.ts files
+
+
+
+7\. inside app.ts- import express, cors and install their node\_types \[*npm i --save-dev @types/cors* + *npm i --save-dev @types/express*] \&\& initialize express : *const app = express()*
+
+
+
+
+
+\---------------------------------------------------------------------------------------
+
+8\. inside **package.json**, modify the following : 
+
+&#x09; // change the type from commonjs to module --> *"type": "module",*
+
+&#x09; // add a dev script to run the server ---> *"dev": "tsx src/server.ts",*
+
+\---------------------------------------------------------------------------------------
+
+
+
+
+
+9\. POSTGRES intall : *"npm install prisma @types/pg --save-dev + npm install @prisma/client @prisma/adapter-pg pg dotenv"  \[now go to the package.json and tsconfig.json to modify]*
+
+
+
+10\. initialize prisma (to see if prisma is installed correctly) ---> *npx prisma*  \[after the installation and modification is done]
+
+
+
+11\. setup prisma ORM ---> *npx prisma init --datasource-provider postgresql --output ../generated/prisma  \[creates 'prisma.config.ts' file, prisma\_folder]*
+
+
+
+12\. change the database name and password inside .env file
+
+
+
+13\. changes inside schema.prisma file --> \[output   = "../src/generated/prisma"]
+
+
+
+14\. now write a testing *model* inside schema.prisma and then run --> *npx prisma migrate dev --name init  \[to see if migration is working]* 
+
+&#x09;success\_message : "Your database is now in sync with your schema."  
+
+
+
+15\. create a folder lib and inside it create prisma.ts and write the code from the postgres documentation
+
+
+
+16\. now connect the prisma by wrting "prisma.connet" inside server.ts file
+
+
+
+17\. generate the prisma client ---> *npx prisma generate*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

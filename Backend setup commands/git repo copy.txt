@@ -1,0 +1,4 @@
+git clone "repo_name"
+
+--> now use "npm install" && "npx generate" to install all dependencies
+--> replace the .json files with the accurate one
