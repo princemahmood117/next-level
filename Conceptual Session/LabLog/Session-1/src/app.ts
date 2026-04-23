@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
-import userRouter from "./module/user/user.route"
+import routes from "./routes"
+
 
 const app = express()
 
@@ -8,7 +9,14 @@ app.use(cors())
 app.use(express.json())
 
 
-app.use(userRouter)
+// version controlling facility
+app.use('/api/v1', routes)
+
+
+
+
+
+
 
 
 
