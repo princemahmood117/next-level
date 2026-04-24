@@ -109,6 +109,11 @@
 17\. generate the prisma client ---> *npx prisma generate*
 
 
+18\. install jwt type ---> *npm install -D @types/node*
+
+18\. install bcrypt type ---> *npm i --save-dev @types/bcrypt*
+
+
 
 
 

@@ -5,6 +5,7 @@ const createUsageLog:RequestHandler = async(req,res) => {
 
     try {
         const payload = req.body;
+        
         const log = await prisma.usageLog.create({
             data:payload
         })
