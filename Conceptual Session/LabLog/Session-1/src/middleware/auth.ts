@@ -2,8 +2,15 @@
 
 import type { Request, Response, NextFunction } from "express";
 import type { Role } from "../generated/prisma/enums";
-import jwt from "jsonwebtoken"
+import jwt, { type JwtPayload } from "jsonwebtoken"
 
+declare global {
+    namespace Express {
+        interface Request {
+            user : JwtPayload
+        }
+    }
+}
 
 const auth = (roles?:Role[]) => {
 
@@ -20,6 +27,8 @@ const auth = (roles?:Role[]) => {
         //* verify the token
         try {
             const decodedToken = jwt.verify(token as string, 'this is verification secret');
+
+            req.user = decodedToken as JwtPayload;
 
             console.log('decoded token : ', decodedToken);
 
