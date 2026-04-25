@@ -1,3 +1,5 @@
 here will be the conceptual sessions
 
-lablog project
+lablog project - first session is custom authentication
+
+resume : 16:00
