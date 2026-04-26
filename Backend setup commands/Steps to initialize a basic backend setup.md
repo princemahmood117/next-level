@@ -22,25 +22,25 @@
 
 \-------------------------------------------------------------------------------------------------------
 
-5\. inside **tsconfig.json**, modify the follwing :					      
+5\. inside **tsconfig.json**, modify the follwing :
 
-&#x09;// uncomment rootdir and outdir						     
+&#x09;// uncomment rootdir and outdir
 
-&#x09;// uncomment ("lib": \["esnext"], "types": \["node"])			      
+&#x09;// uncomment ("lib": \["esnext"], "types": \["node"])
 
 &#x09;// install node type ---> *npm install -D @types/node*
 
-&#x09;		      
+&#x09;
 
-&#x20;  **after posgres is installed** **:** \[follwing documentation] 			      
+&#x20;  **after posgres is installed** **:** \[follwing documentation]
 
-&#x09;*// change module to : "module": "esnext","moduleResolution": "bundler",*       
+&#x09;*// change module to : "module": "esnext","moduleResolution": "bundler",*
 
-&#x09;		      *"target": "es2023", "esModuleInterop": true,*	      
+&#x09;		      *"target": "es2023", "esModuleInterop": true,*
 
 &#x09;		      *"ignoreDeprecations": "6.0",*
 
-&#x09;*after first object, write : "include": \["src/\*\*/\*"] -->* to include all the things after src			      
+&#x09;*after first object, write : "include": \["src/\*\*/\*"] -->* to include all the things after src
 
 \-------------------------------------------------------------------------------------------------------
 
@@ -60,7 +60,7 @@
 
 \---------------------------------------------------------------------------------------
 
-8\. inside **package.json**, modify the following : 
+8\. inside **package.json**, modify the following :
 
 &#x09; // change the type from commonjs to module --> *"type": "module",*
 
@@ -92,9 +92,9 @@
 
 
 
-14\. now write a testing *model* inside schema.prisma and then run --> *npx prisma migrate dev --name init  \[to see if migration is working]* 
+14\. now write a testing *model* inside schema.prisma and then run --> *npx prisma migrate dev --name init  \[to see if migration is working]*
 
-&#x09;success\_message : "Your database is now in sync with your schema."  
+&#x09;success\_message : "Your database is now in sync with your schema."
 
 
 
@@ -109,9 +109,58 @@
 17\. generate the prisma client ---> *npx prisma generate*
 
 
+
 18\. install jwt type ---> *npm install -D @types/node*
 
-18\. install bcrypt type ---> *npm i --save-dev @types/bcrypt*
+
+
+19\. install bcrypt type ---> *npm i --save-dev @types/bcrypt*
+
+
+
+
+
+## Better Auth - Authentication system
+
+
+
+// better auth will provide User/Session models by default
+
+
+
+1. install better-auth ---> *npm install better-auth* 
+
+
+
+2\. set better\_auth\_secret to env file
+
+
+
+3\. set base\_url into env file  \[base\_url == backend server running on port (ex: localhost:5000)]
+
+
+
+4\. create an Instance inside the lib folder \[lib/auth.ts]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
