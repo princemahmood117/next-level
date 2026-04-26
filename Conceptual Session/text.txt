@@ -1,5 +1,5 @@
 here will be the conceptual sessions
 
 lablog project - first session is custom authentication
+	       - second session is better-auth authentication
 
-resume : 16:00

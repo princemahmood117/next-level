@@ -128,7 +128,7 @@
 
 
 
-1. install better-auth ---> *npm install better-auth* 
+1. install better-auth ---> *npm install better-auth*
 
 
 
@@ -144,39 +144,19 @@
 
 
 
+5\. generates an ORM schema (models like: user, session, account, verification are created) ---> *npx auth@latest generate*
 
 
 
+6\. now again migrate to update the schema ---> *npx prisma migrate* \[can use "npx prisma migrate reset" to reset the database if needed]
 
 
 
+7\. mount the handler in *app.ts* file where right before "app.use(express.json())" ---> app.all("/api/auth/\*splat", toNodeHandler(auth));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+8\. now check if the setup is correctly done ---> *"http://localhost:5000/api/auth/ok"*  \[run the url on browser, 'ok:true' means setup successfull]
 
 
 
