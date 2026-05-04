@@ -1,7 +1,7 @@
 // custom authentication (req,res,next)
 
 import type { Request, Response, NextFunction } from "express";
-import type { Role } from "../generated/prisma/enums";
+
 import jwt, { type JwtPayload } from "jsonwebtoken"
 
 declare global {

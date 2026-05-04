@@ -45,6 +45,8 @@ model Equipment {
 
   // one to many relation
   usageLogs UsageLog[]
+
+  @@map("equipment")
 }
 
 enum Status {
@@ -67,6 +69,8 @@ model UsageLog {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("usagelog")
 }
 
 model User {
@@ -81,6 +85,9 @@ model User {
   accounts      Account[]
 
   // usageLogs UsageLog[]
+
+  twoFactorEnabled Boolean?    @default(false)
+  twofactors       TwoFactor[]
 
   @@unique([email])
   @@map("user")
@@ -132,4 +139,17 @@ model Verification {
 
   @@index([identifier])
   @@map("verification")
+}
+
+model TwoFactor {
+  id          String   @id
+  secret      String
+  backupCodes String
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  verified    Boolean? @default(true)
+
+  @@index([secret])
+  @@index([userId])
+  @@map("twoFactor")
 }

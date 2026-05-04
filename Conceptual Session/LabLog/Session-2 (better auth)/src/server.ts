@@ -9,8 +9,8 @@ async function server() {
         await prisma.$disconnect();
     } catch (error) {
         console.error(error);
-        await prisma.$disconnect
-        process.exit(1)
+        // await prisma.$disconnect
+        // process.exit(1)
     }
 
     app.listen(PORT, () => {

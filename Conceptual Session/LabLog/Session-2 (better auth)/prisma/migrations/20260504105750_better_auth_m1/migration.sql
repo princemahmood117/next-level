@@ -2,7 +2,7 @@
 CREATE TYPE "Status" AS ENUM ('AVAILABLE', 'IN_USE', 'MAINTENANCE');
 
 -- CreateTable
-CREATE TABLE "Equipment" (
+CREATE TABLE "equipment" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "serialNumber" TEXT NOT NULL,
@@ -12,11 +12,11 @@ CREATE TABLE "Equipment" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "Equipment_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "equipment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "UsageLog" (
+CREATE TABLE "usagelog" (
     "id" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
     "equipmentId" TEXT NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE "UsageLog" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
-    CONSTRAINT "UsageLog_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "usagelog_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -89,7 +89,7 @@ CREATE TABLE "verification" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Equipment_serialNumber_key" ON "Equipment"("serialNumber");
+CREATE UNIQUE INDEX "equipment_serialNumber_key" ON "equipment"("serialNumber");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
@@ -107,7 +107,7 @@ CREATE INDEX "account_userId_idx" ON "account"("userId");
 CREATE INDEX "verification_identifier_idx" ON "verification"("identifier");
 
 -- AddForeignKey
-ALTER TABLE "UsageLog" ADD CONSTRAINT "UsageLog_equipmentId_fkey" FOREIGN KEY ("equipmentId") REFERENCES "Equipment"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "usagelog" ADD CONSTRAINT "usagelog_equipmentId_fkey" FOREIGN KEY ("equipmentId") REFERENCES "equipment"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "session" ADD CONSTRAINT "session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE CASCADE ON UPDATE CASCADE;

@@ -160,3 +160,33 @@
 
 
 
+9\. In postman, set the headers of the frontend url -> (key) Origin - (value) https://localhost:3000
+
+&#x09;it means : "Is the request coming from the same origin?"
+
+
+
+
+
+10\. for Google Credentials : "https://console.cloud.google.com/apis/dashboard?project=testproject-488621"
+
+&#x09;\*\* Google Cloud Console > Credentials > create\_new, set the redirect URL to "*http://localhost:5000/api/auth/callback/google"* for local development.
+
+
+
+11\. for Github Credentials : "https://github.com/settings/developers" \[create new OAuth app]
+
+&#x09;\*\* set the redirect URL to *"http://localhost:3000/api/auth/callback/github*" for local development
+
+
+
+12\. install resend mail sender : *npm i resend* 
+
+
+
+
+
+
+
+13\. for using 2Factor auth's otp, first login, the enable the 2factor, then hit the "/send-otp" route
+

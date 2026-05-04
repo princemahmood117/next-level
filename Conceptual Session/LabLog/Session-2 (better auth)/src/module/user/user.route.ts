@@ -4,7 +4,7 @@ import { userController } from "./user.controller";
 
 const userRouter = Router()
 
-userRouter.post('/register',userController.register)
+userRouter.post('/register', userController.register)
 
 userRouter.post('/login', userController.login)
 

@@ -1,7 +1,6 @@
 import type { RequestHandler } from "express";
 import { prisma } from "../../lib/prisma";
 import bcrypt from 'bcrypt'
-import jwt from "jsonwebtoken";
 import { userService } from "./user.service";
 
 const register:RequestHandler = async(req,res) => {
