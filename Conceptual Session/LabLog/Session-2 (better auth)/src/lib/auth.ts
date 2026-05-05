@@ -1,7 +1,7 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "./prisma";
-import { twoFactor } from "better-auth/plugins";
+import { admin, twoFactor } from "better-auth/plugins";
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_KEY);
@@ -28,7 +28,10 @@ export const auth = betterAuth({
         }
     },
 
+    
+
     plugins : [
+        admin(),
         twoFactor({
             otpOptions : {                
                 async sendOTP({user, otp}, ctx) {
