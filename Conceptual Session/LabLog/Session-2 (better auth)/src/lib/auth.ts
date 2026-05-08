@@ -1,10 +1,35 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { prisma } from "./prisma";
-import { admin, twoFactor } from "better-auth/plugins";
+import { admin, createAccessControl, twoFactor } from "better-auth/plugins";
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_KEY);
+
+
+
+export const statement = {
+    user: ["create", "read", "update", "delete"], // Permissions available for created roles
+    equipment : ["create", "read", "update", "delete"]
+} as const;
+
+export const ac = createAccessControl(statement);
+
+// what admin can do with other models
+export const adminRoleCanDo = ac.newRole({
+    user : ["create", "read", "update", "delete"],
+    equipment : ["create", "read", "update", "delete"]
+})
+
+// what user can do with the models
+export const userRoleCanDo = ac.newRole({
+    equipment : ["read", "update"]
+})
+
+
+
+
+
 
 
 export const auth = betterAuth({
@@ -31,7 +56,19 @@ export const auth = betterAuth({
     
 
     plugins : [
-        admin(),
+        
+        // admin plugin
+        admin({
+            adminRoles : ["admin", "user"],
+            defaultRole : "user",
+            roles : {
+                admin : adminRoleCanDo,
+                user : userRoleCanDo
+            }
+        }),
+
+
+        // 2 factor plugin
         twoFactor({
             otpOptions : {                
                 async sendOTP({user, otp}, ctx) {

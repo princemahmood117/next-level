@@ -22,6 +22,19 @@ app.all("/api/auth/*splat", toNodeHandler(auth));
 app.use(express.json())
 
 
+const creatAdmin = async() => {
+  await auth.api.createUser({
+    body : {
+      name : "Iftekhar",
+      email : "iftekhar20300@gmail.com",
+      password : "12345678",
+      role : "admin"
+    }     
+  })
+}
+// creatAdmin() 
+
+
 // version controlling facility
 app.use('/api/v1', routes)
 
