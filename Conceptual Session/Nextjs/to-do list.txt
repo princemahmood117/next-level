@@ -1,0 +1,19 @@
+1. project setup
+
+2. file and folder structure
+
+3. nested & multiple layout
+
+4. parallel routing
+
+5. dynamic routes
+
+6. api proxy setup
+
+7. authentication login
+
+8. admin dashboard & role based access
+
+9. data fetching SSG, SSR, ISR
+
+10. cache revalidation 

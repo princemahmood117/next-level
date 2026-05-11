@@ -1,12 +1,12 @@
 import app from "./app.js";
-import { prisma } from "./lib/prisma.js";
+// import { prisma } from "./lib/prisma.js";
 
 const PORT = process.env.PORT
 
 async function server() {
 
     try {
-        await prisma.$disconnect();
+        // await prisma.$disconnect();
     } catch (error) {
         console.error(error);
         // await prisma.$disconnect

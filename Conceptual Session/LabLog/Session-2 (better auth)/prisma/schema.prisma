@@ -65,6 +65,7 @@ model UsageLog {
   notes       String?
 
   // user      User      @relation(fields: [userId], references: [id])
+  
   equipment Equipment @relation(fields: [equipmentId], references: [id])
 
   createdAt DateTime @default(now())
@@ -96,6 +97,7 @@ model User {
 
   @@unique([email])
   @@map("user")
+  // usageLogs UsageLog[]
 }
 
 model Session {
