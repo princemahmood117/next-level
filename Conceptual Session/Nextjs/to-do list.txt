@@ -1,8 +1,8 @@
-1. project setup
+1. project setup ok
 
-2. file and folder structure
+2. file and folder structure ok
 
-3. nested & multiple layout
+3. nested & multiple layout ok
 
 4. parallel routing
 

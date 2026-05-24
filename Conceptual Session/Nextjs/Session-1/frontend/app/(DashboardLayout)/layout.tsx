@@ -1,11 +1,14 @@
 import React from "react";
 
 // this is dashboard layout where the children are rendered
-const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+const DashboardLayout = ({ admin, user }: { admin: React.ReactNode, user: React.ReactNode, }) => {
   return (
     <div>
-      {children}
-      this is layout chindreen
+
+      {admin}
+      <br />
+      {user}
+  
     </div>
   );
 };
