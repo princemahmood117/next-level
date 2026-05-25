@@ -31,7 +31,7 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { getCurrentUser } from "@/services/auth/auth";
+
 
 export default async function DashboardLayout({
   admin,
@@ -40,11 +40,11 @@ export default async function DashboardLayout({
   admin: React.ReactNode;
   user: React.ReactNode;
 }) {
-  const userRole = await getCurrentUser();
+
 
   return (
     <SidebarProvider>
-      <AppSidebar userRole={""} />
+      <AppSidebar userRole="user" />
       <SidebarInset>
         <header className="sticky top-0 z-10 bg-background flex h-16 items-center justify-between px-4 border-b">
           <div className="flex items-center gap-2">
@@ -56,7 +56,7 @@ export default async function DashboardLayout({
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  {userRole === "user" ? "User" : "Admin"}
+                  {"Admin"}
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -64,9 +64,8 @@ export default async function DashboardLayout({
         </header>
 
         <main
-          className={`p-4 relative  pt-6 min-h-[calc(100vh-4rem)] gradientBg`}>
+          className={`p-4 relative  pt-6 min-h-[calc(100vh-4rem)] gradientBg`}>          
           {user}
-
           {admin}
         </main>
       </SidebarInset>

@@ -3,18 +3,10 @@
 import * as React from 'react';
 import {
   Bot,
-  // LifeBuoy,
-  // Send,
   Settings,
   SquareTerminal,
-  ShoppingCart,
-  Package,
   Tag,
-  Award,
-  CreditCard,
-  DollarSign,
   File,
-  User,
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -88,11 +80,11 @@ export function AppSidebar({ userRole, ...props }: AppSidebarProps) {
 
       <SidebarContent>
         {/* Main Navigation */}
-        <NavMain items={navItems} />
+        <NavMain items={USER_NAV_ITEMS} />
 
         {/* Common Secondary Navigation */}
         <div className="mt-4">
-          <NavMain items={COMMON_SECONDARY_ITEMS} />
+          {/* <NavMain items={COMMON_SECONDARY_ITEMS} /> */}
         </div>
       </SidebarContent>
 

@@ -15,13 +15,13 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { logOut } from "@/services/auth/auth";
+// import { logOut } from "@/services/auth/auth";
 
 export function NavUser() {
   const { isMobile } = useSidebar();
 
   const handleLogout = async() => {
-       await logOut()
+      //  await logOut()
   };
 
   return (
