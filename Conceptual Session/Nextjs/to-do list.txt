@@ -1,3 +1,6 @@
+https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
+
+
 1. project setup ok
 
 2. file and folder structure ok
@@ -17,3 +20,14 @@
 9. data fetching SSG, SSR, ISR
 
 10. cache revalidation 
+
+
+
+
+nextjs concept part 2
+
+
+
+
+
+
