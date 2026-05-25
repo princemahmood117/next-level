@@ -41,6 +41,8 @@ export default async function DashboardLayout({
   user: React.ReactNode;
 }) {
 
+  const userRole = "admin"
+
 
   return (
     <SidebarProvider>
@@ -56,7 +58,7 @@ export default async function DashboardLayout({
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  {"Admin"}
+                  {userRole === 'user' ? "User" : "Admin"}
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -65,8 +67,10 @@ export default async function DashboardLayout({
 
         <main
           className={`p-4 relative  pt-6 min-h-[calc(100vh-4rem)] gradientBg`}>          
-          {user}
-          {admin}
+          {/* {user}
+          {admin} */}
+
+          {userRole === 'user' ? user : admin}
         </main>
       </SidebarInset>
     </SidebarProvider>
