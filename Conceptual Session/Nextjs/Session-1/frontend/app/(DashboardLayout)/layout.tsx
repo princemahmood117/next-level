@@ -31,7 +31,10 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+<<<<<<< HEAD
 import { getUser } from "@/src/service/auth";
+=======
+>>>>>>> 693fbbb1b48662e60a5315e8069484ed2a94546f
 
 
 export default async function DashboardLayout({
@@ -42,10 +45,14 @@ export default async function DashboardLayout({
   user: React.ReactNode;
 }) {
 
+<<<<<<< HEAD
   const userRole = "admin";
 
   const userData = await getUser()
   console.log("this is from get User : ", userData);
+=======
+  const userRole = "admin"
+>>>>>>> 693fbbb1b48662e60a5315e8069484ed2a94546f
 
 
   return (
@@ -71,9 +78,16 @@ export default async function DashboardLayout({
 
         <main
           className={`p-4 relative  pt-6 min-h-[calc(100vh-4rem)] gradientBg`}>          
+<<<<<<< HEAD
           {user}
           {admin}
 
+=======
+          {/* {user}
+          {admin} */}
+
+          {userRole === 'user' ? user : admin}
+>>>>>>> 693fbbb1b48662e60a5315e8069484ed2a94546f
         </main>
       </SidebarInset>
     </SidebarProvider>
