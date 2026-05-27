@@ -1,8 +1,11 @@
-1. project setup
+https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
-2. file and folder structure
 
-3. nested & multiple layout
+1. project setup ok
+
+2. file and folder structure ok
+
+3. nested & multiple layout ok
 
 4. parallel routing
 
@@ -17,3 +20,16 @@
 9. data fetching SSG, SSR, ISR
 
 10. cache revalidation 
+
+
+
+
+nextjs concept part 3 - 15:40
+
+jwt decode : npm i jwt-decode
+
+
+
+
+
+

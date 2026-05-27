@@ -31,7 +31,7 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
 
-        {/* this will render dynamically based on click */}
+        {/* address, orders, whishlist will render here dynamically based on click */}
         <div>
             {children}
         </div>
