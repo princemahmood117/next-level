@@ -71,6 +71,12 @@ interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
 
 export function AppSidebar({ userRole, ...props }: AppSidebarProps) {
 
+  let navItems = []
+  if(userRole === 'user') {
+    navItems = USER_NAV_ITEMS
+  } else {
+    navItems = ADMIN_NAV_ITEMS
+  }
 
   return (
     <Sidebar  collapsible="icon" {...props}>
@@ -80,7 +86,7 @@ export function AppSidebar({ userRole, ...props }: AppSidebarProps) {
 
       <SidebarContent>
         {/* Main Navigation */}
-        <NavMain items={USER_NAV_ITEMS} />
+        <NavMain items={navItems} />
 
         {/* Common Secondary Navigation */}
         <div className="mt-4">

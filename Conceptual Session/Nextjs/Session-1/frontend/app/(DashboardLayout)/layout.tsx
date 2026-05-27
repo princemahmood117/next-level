@@ -1,22 +1,3 @@
-// import React from "react";
-
-// // this is dashboard layout where the children are rendered parallely
-// const DashboardLayout = ({ admin, user }: { admin: React.ReactNode, user: React.ReactNode, }) => {
-//   return (
-//     <div>
-
-//       {admin}
-//       <br />
-//       {user}
-  
-//     </div>
-//   );
-// };
-
-// export default DashboardLayout;
-
-
-
 
 import { AppSidebar } from "@/components/shared/sidebar/app-sidebar";
 import {
@@ -31,6 +12,8 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { getUser } from "@/src/service/auth";
+import { redirect } from "next/navigation";
 
 
 export default async function DashboardLayout({
@@ -41,12 +24,11 @@ export default async function DashboardLayout({
   user: React.ReactNode;
 }) {
 
-  const userRole = "admin"
-
+  const {role} = await getUser()
 
   return (
     <SidebarProvider>
-      <AppSidebar userRole="user" />
+      <AppSidebar userRole={role} />
       <SidebarInset>
         <header className="sticky top-0 z-10 bg-background flex h-16 items-center justify-between px-4 border-b">
           <div className="flex items-center gap-2">
@@ -58,7 +40,7 @@ export default async function DashboardLayout({
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                  {userRole === 'user' ? "User" : "Admin"}
+                  {role === 'user' ? "User" : "Admin"}
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
@@ -70,7 +52,7 @@ export default async function DashboardLayout({
           {/* {user}
           {admin} */}
 
-          {userRole === 'user' ? user : admin}
+          {role === 'user' ? user : admin}
         </main>
       </SidebarInset>
     </SidebarProvider>

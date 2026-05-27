@@ -1,21 +1,21 @@
 https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
 
-1. project setup ok
+1. project setup -- Ok
 
-2. file and folder structure ok
+2. file and folder structure -- Ok
 
-3. nested & multiple layout ok
+3. nested & multiple layout -- Ok
 
-4. parallel routing
+4. parallel routing -- OK
 
 5. dynamic routes
 
 6. api proxy setup
 
-7. authentication login
+7. authentication login -- Ok
 
-8. admin dashboard & role based access
+8. admin dashboard & role based access  -- Ok
 
 9. data fetching SSG, SSR, ISR
 
