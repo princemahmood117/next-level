@@ -11,7 +11,7 @@ https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
 5. dynamic routes
 
-6. api proxy setup
+6. api proxy setup -- Ok
 
 7. authentication login -- Ok
 
@@ -24,7 +24,10 @@ https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
 
 
-nextjs concept part 3 - 15:40
+nextjs concept part 5 - 00:00
+
+jwt decode : npm i jwt-decode
+
 
 
 

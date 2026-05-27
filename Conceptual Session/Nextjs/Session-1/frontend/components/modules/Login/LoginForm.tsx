@@ -29,7 +29,7 @@ const LoginForm = () => {
   } = form;
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {    
-        console.log("loginForm:", data)
+        
         const res = await loginUser(data)
         if(res.success) {
             toast.success(res.message)
