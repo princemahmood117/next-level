@@ -22,7 +22,7 @@ export const getAllProducts = async () => {
 
 export const getSingleProduct = async (id:string) => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/products/${id}`,
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/product/${id}`,
             {
                 method: "GET",
                 headers: {

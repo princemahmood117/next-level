@@ -9,7 +9,7 @@ https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
 4. parallel routing -- OK
 
-5. dynamic routes
+5. dynamic routes -- Ok
 
 6. api proxy setup -- Ok
 
@@ -17,7 +17,7 @@ https://github.com/Apollo-Level2-Web-Dev/Nextjs-Conceptual-Demo
 
 8. admin dashboard & role based access  -- Ok
 
-9. data fetching SSG, SSR, ISR
+9. data fetching SSG, SSR, ISR -- Ok
 
 10. cache revalidation 
 
