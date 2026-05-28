@@ -31,8 +31,6 @@ export default async function DashboardLayout({
 
   const {role} = await getUser()
 
-
-
   const userData = await getUser()
   console.log("this is from get User : ", userData);
 

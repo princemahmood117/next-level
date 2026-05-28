@@ -6,7 +6,10 @@ const CommonLayout = ({children} : {children : React.ReactNode}) => {
             
             <Navbar></Navbar> {/* every page will show this navbar*/}
 
-            {children}  {/* this is Home component (slider)*/}  
+            {/* this is content of all pages */}  
+            <div className="container mx-auto px-5">
+                {children}
+            </div>
 
         </div>
     );

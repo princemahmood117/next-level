@@ -45,29 +45,6 @@ export const getUser = async () => {
         decodedData = await jwtDecode(token)
         return decodedData;
     } else {
-        return null;
-        
-    }
-    try {
-
-        const storedToken = await cookies();
-
-        const token = storedToken.get("token")?.value;
-        console.log({token});
-        
-        let decodedData = null;
-
-        if(token) {
-            decodedData = await jwtDecode(token)
-            console.log("decoded token from index.ts: ", decodedData);
-            return decodedData
-        } else {
-            return null
-        }
-
-        
-    } catch (error) {
-        console.log(error);
-
+        return null;        
     }
 }

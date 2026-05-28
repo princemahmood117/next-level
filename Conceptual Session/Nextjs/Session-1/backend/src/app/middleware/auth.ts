@@ -10,7 +10,8 @@ import { IJwtPayload } from '../modules/auth/auth.interface';
 
 const auth = (...requiredRoles: UserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
-    const token = req.headers.authorization;
+    // const token = req.headers.authorization;
+    const token = req.headers.authorization?.split(" ")[1];
     // checking if the token is missing
     if (!token) {
       throw new AppError(StatusCodes.UNAUTHORIZED, 'You are not authorized!');
